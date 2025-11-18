@@ -84,31 +84,6 @@ const Home = () => {
           {/* Animated background elements */}
           <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
-          
-          {/* Floating home icons */}
-          {homeIcons.map((Icon, index) => {
-            const positions = [
-              { top: '10%', left: '12%' },
-              { top: '25%', right: '15%' },
-              { top: '70%', left: '10%' },
-              { top: '85%', right: '12%' },
-              { top: '45%', left: '8%' },
-              { top: '60%', right: '10%' }
-            ];
-            return (
-              <div 
-                key={index}
-                className="absolute opacity-5 animate-float"
-                style={{
-                  ...positions[index],
-                  animationDelay: `${index * 0.5}s`,
-                  animationDuration: `${3 + (index * 0.5)}s`
-                }}
-              >
-                <Icon size={48} />
-              </div>
-            );
-          })}
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -174,8 +149,33 @@ const Home = () => {
       </section>
 
       {/* Services Preview */}
-      <section id="services" className="py-16 md:py-24 bg-secondary/30 scroll-mt-20">
-        <div className="container mx-auto px-4">
+      <section id="services" className="relative py-16 md:py-24 bg-secondary/30 scroll-mt-20 overflow-hidden">
+        {/* Floating icons */}
+        {homeIcons.map((Icon, index) => {
+          const positions = [
+            { top: '10%', left: '8%' },
+            { top: '25%', right: '10%' },
+            { top: '70%', left: '6%' },
+            { top: '85%', right: '8%' },
+            { top: '45%', left: '5%' },
+            { top: '60%', right: '12%' }
+          ];
+          return (
+            <div 
+              key={index}
+              className="absolute opacity-5 animate-float"
+              style={{
+                ...positions[index],
+                animationDelay: `${index * 0.5}s`,
+                animationDuration: `${3 + (index * 0.5)}s`
+              }}
+            >
+              <Icon size={48} />
+            </div>
+          );
+        })}
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4" data-testid="badge-services">
               <HiLightningBolt className="w-4 h-4 text-primary" />
