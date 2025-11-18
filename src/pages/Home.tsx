@@ -78,9 +78,9 @@ const Home = () => {
           <img 
             src={heroImage} 
             alt="Technology background" 
-            className="w-full h-full object-cover opacity-90"
+            className="w-full h-full object-cover opacity-75"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-background/20 via-background/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/30 via-transparent to-background/20" />
           
           {/* Animated background elements */}
           <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
@@ -94,14 +94,14 @@ const Home = () => {
               <span className="text-sm font-semibold text-primary">Innovation in Technology</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white" style={{textShadow: '0 4px 12px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)'}}>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white" style={{textShadow: '0 4px 16px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6), 0 0 30px rgba(0,0,0,0.4)'}}>
               Empowering Africa Through
-              <span className="block text-primary mt-4" style={{textShadow: '0 4px 12px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8), 0 0 40px rgba(59, 130, 246, 0.5)'}}>
+              <span className="block mt-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 bg-clip-text text-transparent" style={{textShadow: 'none', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.8)) drop-shadow(0 0 20px rgba(59, 130, 246, 0.6))'}}>
                 Innovative IT Solutions
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-white leading-relaxed max-w-3xl mx-auto font-medium" style={{textShadow: '0 2px 8px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.8)'}}>
+            <p className="text-xl md:text-2xl text-white leading-relaxed max-w-3xl mx-auto font-medium" style={{textShadow: '0 3px 10px rgba(0,0,0,0.9), 0 1px 6px rgba(0,0,0,0.7)'}}>
               EDGAR BRIGHT GROUP delivers cutting-edge technology, security, and software solutions 
               to businesses across South Africa and beyond.
             </p>
