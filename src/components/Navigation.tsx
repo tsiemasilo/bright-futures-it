@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { NavLink } from "@/components/NavLink";
 import { Button } from "@/components/ui/button";
 import { HiMenu, HiX } from 'react-icons/hi';
-import { RiSparklingFill } from 'react-icons/ri';
 import { useLocation } from 'react-router-dom';
+import edightLogo from '@/assets/edight-logo.png';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,29 +45,12 @@ const Navigation = () => {
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <NavLink to="/" className="flex items-center space-x-3 group">
-            <div className="relative">
-              <div className={`absolute inset-0 opacity-30 blur-xl group-hover:opacity-40 transition-opacity ${
-                isTransparent ? "bg-gradient-to-r from-cyan-400 to-blue-500" : "bg-gradient-moving"
-              }`}></div>
-              <div className={`relative w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg ${
-                isTransparent ? "bg-gradient-to-r from-cyan-500 to-blue-600" : "bg-gradient-moving"
-              }`}>
-                <RiSparklingFill className="text-white w-5 h-5 md:w-6 md:h-6" />
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <span className={`text-2xl md:text-3xl font-display font-bold transition-colors ${
-                isTransparent ? "text-white" : "gradient-text gradient-text-animate"
-              }`}>
-                Edight
-              </span>
-              <span className={`text-[8px] md:text-[10px] tracking-wider uppercase transition-colors ${
-                isTransparent ? "text-white/60" : "text-muted-foreground"
-              }`}>
-                Technology & Innovation
-              </span>
-            </div>
+          <NavLink to="/" className="flex items-center group">
+            <img 
+              src={edightLogo} 
+              alt="Edight Logo" 
+              className="h-12 md:h-16 w-auto object-contain transform group-hover:scale-105 transition-transform duration-300"
+            />
           </NavLink>
 
           {/* Desktop Navigation */}

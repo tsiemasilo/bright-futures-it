@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { HiMail, HiPhone, HiLocationMarker, HiArrowRight } from 'react-icons/hi';
 import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { BsCpu, BsCodeSlash, BsShieldLock, BsLightbulb } from 'react-icons/bs';
+import edightLogo from '@/assets/edight-logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -34,14 +35,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="space-y-6 lg:col-span-1">
-            <div>
-              <h3 className="text-3xl font-bold bg-gradient-hero bg-clip-text text-transparent mb-2">
-                Edight
-              </h3>
-              <p className="text-sm text-gray-400 uppercase tracking-wider">
-                Technology & Innovation
-              </p>
-            </div>
+            <img 
+              src={edightLogo} 
+              alt="Edight Logo" 
+              className="h-24 w-auto object-contain"
+            />
             <p className="text-gray-300 text-sm leading-relaxed">
               Empowering businesses through innovative IT solutions and cutting-edge technology across South Africa and beyond.
             </p>
