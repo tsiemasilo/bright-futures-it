@@ -4,13 +4,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import heroImage from "@/assets/hero-tech-bg.jpg";
-import { FaRocket, FaShieldAlt, FaUsers, FaAward, FaCheckCircle, FaLaptopCode, FaLayerGroup, FaChartLine, FaLightbulb, FaHandshake } from 'react-icons/fa';
+import { FaRocket, FaShieldAlt, FaUsers, FaAward, FaCheckCircle, FaLaptopCode, FaLayerGroup, FaChartLine, FaLightbulb, FaHandshake, FaLaptop, FaMobileAlt, FaServer, FaPrint, FaCode, FaLock, FaVideo, FaNetworkWired } from 'react-icons/fa';
 import { HiLightningBolt, HiTrendingUp, HiArrowRight, HiShieldCheck } from 'react-icons/hi';
 import { RiSparklingFill } from 'react-icons/ri';
 import { Rocket, Globe, Zap, Shield, TrendingUp, Sparkles } from "lucide-react";
 
 const Home = () => {
-  const servicesIcons = [Rocket, Globe, Zap, Shield, TrendingUp, Sparkles, Rocket, Globe, Zap, Shield, TrendingUp, Sparkles, Rocket, Globe];
+  // Services-themed icons: Hardware, Software, Security, IT Consulting
+  const servicesIcons = [FaLaptop, FaCode, FaShieldAlt, FaChartLine, FaServer, FaMobileAlt, FaLock, FaNetworkWired, FaPrint, FaLaptopCode, FaVideo, FaLayerGroup, FaServer, FaCode];
 
   const services = [
     {
