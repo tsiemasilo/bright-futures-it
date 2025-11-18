@@ -1,4 +1,4 @@
-import { MonitorSmartphone, Code2, ShieldCheck, Network, Server, Cloud, Database, Cpu, Smartphone, Globe, Lock, Zap, CheckCircle2 } from "lucide-react";
+import { MonitorSmartphone, Code2, ShieldCheck, Network, Server, Cloud, Database, Cpu, Smartphone, Globe, Lock, Zap, CheckCircle2, Wifi } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -90,6 +90,21 @@ const Services = () => {
       ],
       gradient: "from-sky-500 to-cyan-500",
       bgPattern: "bg-sky-500/5"
+    },
+    {
+      icon: Wifi,
+      title: "ICT (Information and Communications Technology)",
+      description: "Comprehensive ICT solutions that unify your communications infrastructure and information systems. We deliver integrated technology services that enhance collaboration and streamline operations.",
+      features: [
+        "Unified communications systems",
+        "VoIP and telephony solutions",
+        "Data center management",
+        "IT infrastructure optimization",
+        "Digital workplace solutions",
+        "Communication platform integration"
+      ],
+      gradient: "from-violet-500 to-purple-500",
+      bgPattern: "bg-violet-500/5"
     }
   ];
 
