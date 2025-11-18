@@ -77,9 +77,9 @@ const Home = () => {
           <img 
             src={heroImage} 
             alt="Technology background" 
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover opacity-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-background/50 via-background/40 to-background/30" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/20 via-background/10 to-transparent" />
           
           {/* Animated background elements */}
           <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
@@ -118,13 +118,13 @@ const Home = () => {
               <span className="text-sm font-medium text-primary">Innovation in Technology</span>
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight" style={{textShadow: '2px 2px 8px rgba(0,0,0,0.8), -1px -1px 4px rgba(255,255,255,0.3)'}}>
               Empowering Africa Through
-              <span className="block bg-gradient-hero bg-clip-text text-transparent mt-2 drop-shadow-lg" style={{filter: 'drop-shadow(0 2px 8px rgba(255,255,255,0.5))'}}>
+              <span className="block bg-gradient-hero bg-clip-text text-transparent mt-2" style={{filter: 'drop-shadow(0 2px 12px rgba(255,255,255,0.8)) drop-shadow(0 0 8px rgba(255,255,255,0.6))'}}>
                 Innovative IT Solutions
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-foreground font-medium drop-shadow-md bg-background/30 backdrop-blur-sm rounded-lg p-4">
+            <p className="text-lg md:text-xl text-foreground font-semibold bg-background/60 backdrop-blur-md rounded-lg p-4 shadow-2xl" style={{textShadow: '1px 1px 4px rgba(0,0,0,0.6)'}}>
               EDGAR BRIGHT GROUP delivers cutting-edge technology, security, and software solutions 
               to businesses across South Africa and beyond.
             </p>
