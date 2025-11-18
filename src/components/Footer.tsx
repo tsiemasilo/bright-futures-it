@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { HiMail, HiPhone, HiLocationMarker, HiArrowRight } from 'react-icons/hi';
 import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { BsCpu, BsCodeSlash, BsShieldLock, BsLightbulb } from 'react-icons/bs';
-import edightLogo from '@/assets/edight-logo.png';
+import edightLogo from '@/assets/edight-logo.svg';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
