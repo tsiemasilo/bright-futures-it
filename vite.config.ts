@@ -11,7 +11,12 @@ export default defineConfig(({ mode }) => ({
     strictPort: true,
     allowedHosts: true,
     hmr: {
-      clientPort: 5000,
+      host: process.env.REPLIT_DEV_DOMAIN,
+      clientPort: 443,
+      protocol: 'wss',
+    },
+    watch: {
+      usePolling: true,
     },
   },
   preview: {
