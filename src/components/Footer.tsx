@@ -2,16 +2,16 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { HiMail, HiPhone, HiLocationMarker, HiArrowRight } from 'react-icons/hi';
 import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
-import { Laptop, Terminal, Shield, Briefcase } from 'lucide-react';
+import { BsCpu, BsCodeSlash, BsShieldLock, BsLightbulb } from 'react-icons/bs';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const services = [
-    { name: "Hardware Solutions", icon: Laptop, color: "from-blue-500 to-cyan-500" },
-    { name: "Software Development", icon: Terminal, color: "from-purple-500 to-pink-500" },
-    { name: "Security Technologies", icon: Shield, color: "from-emerald-500 to-teal-500" },
-    { name: "IT Consulting", icon: Briefcase, color: "from-orange-500 to-amber-500" },
+    { name: "Hardware Solutions", icon: BsCpu, color: "from-blue-500 to-cyan-500" },
+    { name: "Software Development", icon: BsCodeSlash, color: "from-purple-500 to-pink-500" },
+    { name: "Security Technologies", icon: BsShieldLock, color: "from-emerald-500 to-teal-500" },
+    { name: "IT Consulting", icon: BsLightbulb, color: "from-orange-500 to-amber-500" },
   ];
 
   const socialLinks = [
