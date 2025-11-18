@@ -178,7 +178,7 @@ const Home = () => {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-lg sm:text-xl lg:text-2xl text-white/80 leading-relaxed max-w-2xl"
               >
-                <span className="font-semibold text-white">edight</span> delivers cutting-edge technology, 
+                <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Edight</span> delivers cutting-edge technology, 
                 security, and software solutions to businesses across South Africa and beyond.
               </motion.p>
 

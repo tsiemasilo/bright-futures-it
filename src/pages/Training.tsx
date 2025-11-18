@@ -122,7 +122,7 @@ const Training = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p className="text-lg">
-                  Recognizing South Africa's high youth unemployment rate, edight is 
+                  Recognizing South Africa's high youth unemployment rate, <span className="font-bold text-foreground">Edight</span> is 
                   committed to developing the next generation of IT professionals through comprehensive 
                   in-service training and internship programs.
                 </p>

@@ -60,7 +60,7 @@ const Navigation = () => {
               <span className={`text-2xl md:text-3xl font-display font-bold transition-colors ${
                 isTransparent ? "text-white" : "gradient-text gradient-text-animate"
               }`}>
-                EDIGHT
+                Edight
               </span>
               <span className={`text-[8px] md:text-[10px] tracking-wider uppercase transition-colors ${
                 isTransparent ? "text-white/60" : "text-muted-foreground"

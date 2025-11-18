@@ -36,7 +36,7 @@ const Footer = () => {
           <div className="space-y-6 lg:col-span-1">
             <div>
               <h3 className="text-3xl font-bold bg-gradient-hero bg-clip-text text-transparent mb-2">
-                EDIGHT
+                Edight
               </h3>
               <p className="text-sm text-gray-400 uppercase tracking-wider">
                 Technology & Innovation
@@ -172,7 +172,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
             <p className="text-center md:text-left">
-              &copy; {currentYear} edight (PTY). All rights reserved.
+              &copy; {currentYear} <span className="font-semibold">Edight</span> (PTY). All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <Link to="#" className="hover:text-primary transition-colors" data-testid="link-privacy">
