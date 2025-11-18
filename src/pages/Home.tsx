@@ -241,20 +241,20 @@ const Home = () => {
       <section className="relative py-16 md:py-24 overflow-hidden">
         {/* Floating icons for About section - themed icons */}
         {[
-          { Icon: FaShieldAlt, position: { top: '12%', left: '8%' } },
-          { Icon: FaAward, position: { top: '25%', right: '15%' } },
-          { Icon: FaUsers, position: { top: '65%', left: '10%' } },
-          { Icon: FaRocket, position: { top: '40%', right: '8%' } },
-          { Icon: FaLightbulb, position: { top: '78%', right: '12%' } },
-          { Icon: Sparkles, position: { top: '55%', left: '6%' } },
-          { Icon: FaHandshake, position: { top: '88%', left: '14%' } },
-          { Icon: TrendingUp, position: { top: '18%', right: '6%' } }
+          { Icon: FaShieldAlt, position: { top: '15%', left: '18%' } },
+          { Icon: FaAward, position: { top: '28%', right: '22%' } },
+          { Icon: FaUsers, position: { top: '62%', left: '25%' } },
+          { Icon: FaRocket, position: { top: '45%', right: '30%' } },
+          { Icon: FaLightbulb, position: { top: '75%', right: '20%' } },
+          { Icon: Sparkles, position: { top: '35%', left: '12%' } },
+          { Icon: FaHandshake, position: { top: '85%', left: '35%' } },
+          { Icon: TrendingUp, position: { top: '22%', right: '12%' } }
         ].map((item, index) => {
           const IconComponent = item.Icon;
           return (
             <div 
               key={`about-${index}`}
-              className="absolute opacity-12 text-primary animate-float"
+              className="absolute opacity-15 text-primary animate-float"
               style={{
                 ...item.position,
                 animationDelay: `${index * 0.5}s`,
