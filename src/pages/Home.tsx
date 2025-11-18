@@ -77,9 +77,9 @@ const Home = () => {
           <img 
             src={heroImage} 
             alt="Technology background" 
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/85 to-secondary/40" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/60 to-background/50" />
           
           {/* Animated background elements */}
           <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
