@@ -8,10 +8,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const services = [
-    { name: "Hardware Solutions", icon: BsCpu, color: "from-blue-500 to-cyan-500" },
-    { name: "Software Development", icon: BsCodeSlash, color: "from-purple-500 to-pink-500" },
-    { name: "Security Technologies", icon: BsShieldLock, color: "from-emerald-500 to-teal-500" },
-    { name: "IT Consulting", icon: BsLightbulb, color: "from-orange-500 to-amber-500" },
+    { name: "Hardware Solutions", icon: BsCpu },
+    { name: "Software Development", icon: BsCodeSlash },
+    { name: "Security Technologies", icon: BsShieldLock },
+    { name: "IT Consulting", icon: BsLightbulb },
   ];
 
   const socialLinks = [
@@ -108,13 +108,13 @@ const Footer = () => {
                     data-testid={`item-service-${index}`}
                   >
                     <Link to="/services" className="flex items-center gap-3 text-gray-300 hover:text-white transition-all duration-300">
-                      <div className={`relative w-10 h-10 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                        <Icon size={20} className="text-white" />
+                      <div className="relative w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-all duration-300">
+                        <Icon size={20} className="text-gray-400 group-hover:text-white transition-colors" />
                       </div>
                       <div className="flex-1">
                         <span className="text-sm font-medium group-hover:translate-x-1 inline-block transition-transform duration-300">{service.name}</span>
                       </div>
-                      <HiArrowRight size={16} className="opacity-0 group-hover:opacity-100 -ml-4 group-hover:ml-0 transition-all duration-300 text-primary" />
+                      <HiArrowRight size={16} className="opacity-0 group-hover:opacity-100 -ml-4 group-hover:ml-0 transition-all duration-300 text-gray-400" />
                     </Link>
                   </li>
                 );
