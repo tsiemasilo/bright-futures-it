@@ -7,8 +7,11 @@ import heroImage from "@/assets/hero-tech.jpg";
 import { FaRocket, FaShieldAlt, FaUsers, FaAward, FaCheckCircle, FaLaptopCode, FaLayerGroup, FaChartLine } from 'react-icons/fa';
 import { HiLightningBolt, HiTrendingUp, HiArrowRight, HiShieldCheck } from 'react-icons/hi';
 import { RiSparklingFill } from 'react-icons/ri';
+import { Database, Cpu, Smartphone, Globe, Lock, Zap } from "lucide-react";
 
 const Home = () => {
+  const techIcons = [Database, Cpu, Smartphone, Globe, Lock, Zap];
+
   const services = [
     {
       icon: FaLaptopCode,
@@ -81,6 +84,22 @@ const Home = () => {
           {/* Animated background elements */}
           <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+          
+          {/* Floating tech icons */}
+          {techIcons.map((Icon, index) => (
+            <div 
+              key={index}
+              className="absolute opacity-5 animate-float"
+              style={{
+                top: `${20 + (index * 15)}%`,
+                left: `${10 + (index * 15)}%`,
+                animationDelay: `${index * 0.5}s`,
+                animationDuration: `${3 + (index * 0.5)}s`
+              }}
+            >
+              <Icon size={48} />
+            </div>
+          ))}
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
