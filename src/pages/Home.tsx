@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import heroImage from "@/assets/hero-tech-bg.jpg";
-import { FaRocket, FaShieldAlt, FaUsers, FaAward, FaCheckCircle, FaLaptopCode, FaLayerGroup, FaChartLine } from 'react-icons/fa';
+import { FaRocket, FaShieldAlt, FaUsers, FaAward, FaCheckCircle, FaLaptopCode, FaLayerGroup, FaChartLine, FaLightbulb, FaHandshake } from 'react-icons/fa';
 import { HiLightningBolt, HiTrendingUp, HiArrowRight, HiShieldCheck } from 'react-icons/hi';
 import { RiSparklingFill } from 'react-icons/ri';
 import { Rocket, Globe, Zap, Shield, TrendingUp, Sparkles } from "lucide-react";
@@ -239,35 +239,29 @@ const Home = () => {
 
       {/* About Preview */}
       <section className="relative py-16 md:py-24 overflow-hidden">
-        {/* Floating icons for About section */}
-        {servicesIcons.map((Icon, index) => {
-          const positions = [
-            { top: '8%', left: '6%' },
-            { top: '18%', right: '10%' },
-            { top: '28%', left: '15%' },
-            { top: '38%', right: '12%' },
-            { top: '48%', left: '9%' },
-            { top: '58%', right: '14%' },
-            { top: '68%', left: '12%' },
-            { top: '78%', right: '8%' },
-            { top: '15%', left: '22%' },
-            { top: '32%', right: '6%' },
-            { top: '50%', left: '4%' },
-            { top: '62%', right: '16%' },
-            { top: '75%', left: '8%' },
-            { top: '85%', right: '10%' }
-          ];
+        {/* Floating icons for About section - themed icons */}
+        {[
+          { Icon: FaShieldAlt, position: { top: '12%', left: '8%' } },
+          { Icon: FaAward, position: { top: '25%', right: '15%' } },
+          { Icon: FaUsers, position: { top: '65%', left: '10%' } },
+          { Icon: FaRocket, position: { top: '40%', right: '8%' } },
+          { Icon: FaLightbulb, position: { top: '78%', right: '12%' } },
+          { Icon: Sparkles, position: { top: '55%', left: '6%' } },
+          { Icon: FaHandshake, position: { top: '88%', left: '14%' } },
+          { Icon: TrendingUp, position: { top: '18%', right: '6%' } }
+        ].map((item, index) => {
+          const IconComponent = item.Icon;
           return (
             <div 
               key={`about-${index}`}
-              className="absolute opacity-15 text-primary animate-float"
+              className="absolute opacity-12 text-primary animate-float"
               style={{
-                ...positions[index],
-                animationDelay: `${index * 0.4}s`,
-                animationDuration: `${4 + (index * 0.3)}s`
+                ...item.position,
+                animationDelay: `${index * 0.5}s`,
+                animationDuration: `${4 + (index * 0.4)}s`
               }}
             >
-              <Icon size={56} />
+              <IconComponent size={52} />
             </div>
           );
         })}
