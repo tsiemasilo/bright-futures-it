@@ -7,10 +7,10 @@ import heroImage from "@/assets/hero-tech.jpg";
 import { FaRocket, FaShieldAlt, FaUsers, FaAward, FaCheckCircle, FaLaptopCode, FaLayerGroup, FaChartLine } from 'react-icons/fa';
 import { HiLightningBolt, HiTrendingUp, HiArrowRight, HiShieldCheck } from 'react-icons/hi';
 import { RiSparklingFill } from 'react-icons/ri';
-import { Database, Cpu, Smartphone, Globe, Lock, Zap } from "lucide-react";
+import { Rocket, Globe, Zap, Shield, TrendingUp, Sparkles } from "lucide-react";
 
 const Home = () => {
-  const techIcons = [Database, Cpu, Smartphone, Globe, Lock, Zap];
+  const homeIcons = [Rocket, Globe, Zap, Shield, TrendingUp, Sparkles];
 
   const services = [
     {
@@ -85,8 +85,8 @@ const Home = () => {
           <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
           
-          {/* Floating tech icons */}
-          {techIcons.map((Icon, index) => (
+          {/* Floating home icons */}
+          {homeIcons.map((Icon, index) => (
             <div 
               key={index}
               className="absolute opacity-5 animate-float"
