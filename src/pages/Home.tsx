@@ -238,8 +238,41 @@ const Home = () => {
       </section>
 
       {/* About Preview */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* Floating icons for About section */}
+        {servicesIcons.map((Icon, index) => {
+          const positions = [
+            { top: '8%', left: '6%' },
+            { top: '18%', right: '10%' },
+            { top: '28%', left: '15%' },
+            { top: '38%', right: '12%' },
+            { top: '48%', left: '9%' },
+            { top: '58%', right: '14%' },
+            { top: '68%', left: '12%' },
+            { top: '78%', right: '8%' },
+            { top: '15%', left: '22%' },
+            { top: '32%', right: '6%' },
+            { top: '50%', left: '4%' },
+            { top: '62%', right: '16%' },
+            { top: '75%', left: '8%' },
+            { top: '85%', right: '10%' }
+          ];
+          return (
+            <div 
+              key={`about-${index}`}
+              className="absolute opacity-15 text-primary animate-float"
+              style={{
+                ...positions[index],
+                animationDelay: `${index * 0.4}s`,
+                animationDuration: `${4 + (index * 0.3)}s`
+              }}
+            >
+              <Icon size={56} />
+            </div>
+          );
+        })}
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-slide-right">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4" data-testid="badge-about">
