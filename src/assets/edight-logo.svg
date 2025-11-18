@@ -1,31 +1,65 @@
-<svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Connecting lines -->
-  <line x1="30" y1="20" x2="45" y2="35" stroke="#60A5FA" stroke-width="2"/>
-  <line x1="30" y1="20" x2="20" y2="35" stroke="#60A5FA" stroke-width="2"/>
-  <line x1="45" y1="35" x2="60" y2="40" stroke="#3B82F6" stroke-width="2"/>
-  <line x1="60" y1="40" x2="75" y1="25" stroke="#3B82F6" stroke-width="2"/>
-  <line x1="60" y1="40" x2="90" y2="35" stroke="#3B82F6" stroke-width="2"/>
-  <line x1="45" y1="35" x2="45" y2="55" stroke="#8B5CF6" stroke-width="2"/>
-  <line x1="45" y1="55" x2="30" y2="60" stroke="#8B5CF6" stroke-width="2"/>
-  <line x1="45" y1="55" x2="60" y2="60" stroke="#8B5CF6" stroke-width="2"/>
-  <line x1="90" y1="35" x2="100" y2="20" stroke="#60A5FA" stroke-width="2"/>
-  <line x1="90" y1="35" x2="105" y2="40" stroke="#60A5FA" stroke-width="2"/>
+  <!-- Top connections -->
+  <line x1="50" y1="15" x2="35" y2="30" stroke="#5BA3C5" stroke-width="2.5"/>
+  <line x1="50" y1="15" x2="65" y2="30" stroke="#5BA3C5" stroke-width="2.5"/>
+  
+  <!-- Left side connections -->
+  <line x1="35" y1="30" x2="20" y2="45" stroke="#5BA3C5" stroke-width="2.5"/>
+  <line x1="35" y1="30" x2="30" y2="50" stroke="#5BA3C5" stroke-width="2.5"/>
+  
+  <!-- Right side connections -->
+  <line x1="65" y1="30" x2="80" y2="45" stroke="#5BA3C5" stroke-width="2.5"/>
+  <line x1="65" y1="30" x2="70" y2="50" stroke="#5BA3C5" stroke-width="2.5"/>
+  
+  <!-- Center horizontal connections -->
+  <line x1="30" y1="50" x2="42" y2="50" stroke="#6B46C1" stroke-width="2.5"/>
+  <line x1="58" y1="50" x2="70" y2="50" stroke="#6B46C1" stroke-width="2.5"/>
+  
+  <!-- Bottom left connections -->
+  <line x1="30" y1="50" x2="35" y2="70" stroke="#5BA3C5" stroke-width="2.5"/>
+  <line x1="30" y1="50" x2="20" y2="55" stroke="#5BA3C5" stroke-width="2.5"/>
+  
+  <!-- Bottom right connections -->
+  <line x1="70" y1="50" x2="65" y2="70" stroke="#5BA3C5" stroke-width="2.5"/>
+  <line x1="70" y1="50" x2="80" y2="55" stroke="#5BA3C5" stroke-width="2.5"/>
+  
+  <!-- Bottom center connections -->
+  <line x1="35" y1="70" x2="50" y2="85" stroke="#5BA3C5" stroke-width="2.5"/>
+  <line x1="65" y1="70" x2="50" y2="85" stroke="#5BA3C5" stroke-width="2.5"/>
+  
+  <!-- Center connections -->
+  <line x1="42" y1="50" x2="35" y2="30" stroke="#6B46C1" stroke-width="2.5"/>
+  <line x1="58" y1="50" x2="65" y2="30" stroke="#6B46C1" stroke-width="2.5"/>
+  <line x1="42" y1="50" x2="35" y2="70" stroke="#6B46C1" stroke-width="2.5"/>
+  <line x1="58" y1="50" x2="65" y2="70" stroke="#6B46C1" stroke-width="2.5"/>
   
   <!-- Nodes (circles) -->
-  <!-- Top left cluster -->
-  <circle cx="30" cy="20" r="8" fill="#60A5FA"/>
-  <circle cx="20" cy="35" r="5" fill="#93C5FD"/>
-  <circle cx="45" cy="35" r="10" fill="#3B82F6"/>
+  <!-- Top -->
+  <circle cx="50" cy="15" r="5.5" fill="#5BA3C5"/>
   
-  <!-- Center/bottom cluster -->
-  <circle cx="45" cy="55" r="12" fill="#8B5CF6"/>
-  <circle cx="30" cy="60" r="6" fill="#A78BFA"/>
-  <circle cx="60" cy="60" r="6" fill="#A78BFA"/>
+  <!-- Second row -->
+  <circle cx="35" cy="30" r="6.5" fill="#5BA3C5"/>
+  <circle cx="65" cy="30" r="6.5" fill="#5BA3C5"/>
   
-  <!-- Right cluster -->
-  <circle cx="60" cy="40" r="10" fill="#3B82F6"/>
-  <circle cx="75" cy="25" r="5" fill="#60A5FA"/>
-  <circle cx="90" cy="35" r="8" fill="#3B82F6"/>
-  <circle cx="100" cy="20" r="4" fill="#93C5FD"/>
-  <circle cx="105" cy="40" r="4" fill="#93C5FD"/>
+  <!-- Third row (sides) -->
+  <circle cx="20" cy="45" r="5" fill="#5BA3C5"/>
+  <circle cx="80" cy="45" r="5" fill="#5BA3C5"/>
+  
+  <!-- Center row -->
+  <circle cx="30" cy="50" r="5.5" fill="#5BA3C5"/>
+  <circle cx="42" cy="50" r="7.5" fill="#6B46C1"/>
+  <circle cx="58" cy="50" r="7.5" fill="#6B46C1"/>
+  <circle cx="70" cy="50" r="5.5" fill="#5BA3C5"/>
+  
+  <!-- Fifth row (sides) -->
+  <circle cx="20" cy="55" r="5" fill="#5BA3C5"/>
+  <circle cx="80" cy="55" r="5" fill="#5BA3C5"/>
+  
+  <!-- Sixth row -->
+  <circle cx="35" cy="70" r="6.5" fill="#5BA3C5"/>
+  <circle cx="65" cy="70" r="6.5" fill="#5BA3C5"/>
+  
+  <!-- Bottom -->
+  <circle cx="50" cy="85" r="5.5" fill="#5BA3C5"/>
 </svg>
