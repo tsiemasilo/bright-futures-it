@@ -1,4 +1,4 @@
-import { GraduationCap, Users, Briefcase, Award, TrendingUp, Target } from "lucide-react";
+import { GraduationCap, Users, Briefcase, Award, TrendingUp, Target, Book, Brain, Trophy, Rocket } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import teamImage from "@/assets/team-collab.jpg";
 
 const Training = () => {
+  const trainingIcons = [GraduationCap, Book, Brain, Users, Trophy, Rocket];
+
   const programs = [
     {
       icon: GraduationCap,
@@ -68,8 +70,28 @@ const Training = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section id="training" className="pt-32 md:pt-40 pb-16 bg-gradient-to-br from-secondary/30 to-background scroll-mt-20">
-        <div className="container mx-auto px-4">
+      <section id="training" className="relative pt-32 md:pt-40 pb-16 bg-gradient-to-br from-secondary/30 to-background scroll-mt-20 overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
+        
+        {/* Floating training icons */}
+        {trainingIcons.map((Icon, index) => (
+          <div 
+            key={index}
+            className="absolute opacity-5 animate-float"
+            style={{
+              top: `${20 + (index * 15)}%`,
+              left: `${10 + (index * 15)}%`,
+              animationDelay: `${index * 0.5}s`,
+              animationDuration: `${3 + (index * 0.5)}s`
+            }}
+          >
+            <Icon size={48} />
+          </div>
+        ))}
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
             <h1 className="text-4xl md:text-5xl font-bold">
               Social Empowerment & Training
