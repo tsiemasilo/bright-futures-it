@@ -88,12 +88,12 @@ const Home = () => {
           {/* Floating home icons */}
           {homeIcons.map((Icon, index) => {
             const positions = [
-              { top: '10%', left: '5%' },
-              { top: '25%', right: '8%' },
-              { top: '70%', left: '3%' },
-              { top: '85%', right: '5%' },
-              { top: '45%', left: '2%' },
-              { top: '60%', right: '3%' }
+              { top: '10%', left: '12%' },
+              { top: '25%', right: '15%' },
+              { top: '70%', left: '10%' },
+              { top: '85%', right: '12%' },
+              { top: '45%', left: '8%' },
+              { top: '60%', right: '10%' }
             ];
             return (
               <div 

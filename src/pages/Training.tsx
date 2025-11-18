@@ -78,12 +78,12 @@ const Training = () => {
         {/* Floating training icons */}
         {trainingIcons.map((Icon, index) => {
           const positions = [
-            { top: '15%', left: '5%' },
-            { top: '30%', right: '8%' },
-            { top: '65%', left: '3%' },
-            { top: '80%', right: '5%' },
-            { top: '50%', left: '2%' },
-            { top: '40%', right: '3%' }
+            { top: '15%', left: '12%' },
+            { top: '30%', right: '15%' },
+            { top: '65%', left: '10%' },
+            { top: '80%', right: '12%' },
+            { top: '50%', left: '8%' },
+            { top: '40%', right: '10%' }
           ];
           return (
             <div 
