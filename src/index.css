@@ -398,26 +398,53 @@ All colors MUST be HSL.
   }
 
   /* Moving gradient backgrounds */
+  /* Light gray gradient for subtle backgrounds */
+  .bg-gradient-moving-light {
+    background: linear-gradient(
+      -45deg,
+      hsl(220 20% 85%),
+      hsl(220 15% 90%),
+      hsl(220 18% 88%),
+      hsl(220 12% 92%),
+      hsl(220 20% 85%)
+    );
+    background-size: 400% 400%;
+    animation: gradient-wave 15s ease infinite;
+  }
+
+  /* Dark gradient for sections with white text */
+  .bg-gradient-moving-dark {
+    background: linear-gradient(
+      -45deg,
+      hsl(220 28% 13%),
+      hsl(220 25% 16%),
+      hsl(220 30% 14%),
+      hsl(220 22% 18%),
+      hsl(220 28% 13%)
+    );
+    background-size: 400% 400%;
+    animation: gradient-wave 15s ease infinite;
+  }
+
+  /* Brand color gradient for buttons using coral and beige */
   .bg-gradient-moving {
     background: linear-gradient(
       -45deg,
       hsl(0 60% 57%),
-      hsl(340 70% 60%),
-      hsl(280 65% 65%),
-      hsl(200 70% 60%),
+      hsl(10 50% 62%),
+      hsl(20 40% 68%),
+      hsl(10 50% 62%),
       hsl(0 60% 57%)
     );
     background-size: 400% 400%;
-    animation: gradient-wave 15s ease infinite;
+    animation: gradient-wave 12s ease infinite;
   }
 
   .bg-gradient-animated {
     background: linear-gradient(
       135deg,
       hsl(0 60% 57%) 0%,
-      hsl(340 70% 60%) 25%,
-      hsl(280 65% 65%) 50%,
-      hsl(200 70% 60%) 75%,
+      hsl(10 50% 62%) 50%,
       hsl(0 60% 57%) 100%
     );
     background-size: 200% 200%;
