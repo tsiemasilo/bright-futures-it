@@ -472,4 +472,15 @@ All colors MUST be HSL.
   .btn-glow:hover::before {
     transform: scale(1);
   }
+
+  /* Respect user's motion preferences for better performance */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
