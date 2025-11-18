@@ -17,41 +17,41 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 28% 13%;
 
-    --primary: 0 60% 57%;
+    --primary: 210 80% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 20 16% 78%;
+    --secondary: 210 40% 92%;
     --secondary-foreground: 220 28% 13%;
 
-    --muted: 20 16% 90%;
+    --muted: 210 30% 95%;
     --muted-foreground: 220 15% 45%;
 
-    --accent: 0 60% 57%;
+    --accent: 210 80% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 20 16% 88%;
-    --input: 20 16% 88%;
-    --ring: 0 60% 57%;
+    --border: 210 30% 90%;
+    --input: 210 30% 90%;
+    --ring: 210 80% 55%;
 
     --radius: 0.75rem;
 
     /* Brand Colors */
-    --brand-coral: 0 60% 57%;
-    --brand-beige: 20 16% 78%;
+    --brand-coral: 210 80% 55%;
+    --brand-beige: 210 40% 92%;
     --brand-dark: 220 28% 13%;
     --brand-light: 0 0% 98%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 60% 57%) 0%, hsl(0 70% 65%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(20 16% 78%) 0%, hsl(20 20% 85%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(210 80% 55%) 0%, hsl(210 75% 65%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(210 40% 92%) 0%, hsl(210 35% 88%) 100%);
 
     /* Shadows */
     --shadow-soft: 0 2px 20px -2px hsl(220 28% 13% / 0.08);
     --shadow-card: 0 4px 24px -4px hsl(220 28% 13% / 0.1);
-    --shadow-hover: 0 8px 32px -8px hsl(0 60% 57% / 0.2);
+    --shadow-hover: 0 8px 32px -8px hsl(210 80% 55% / 0.2);
 
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -69,7 +69,7 @@ All colors MUST be HSL.
     --popover: 220 28% 13%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 60% 57%;
+    --primary: 210 80% 55%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 20% 22%;
@@ -78,12 +78,12 @@ All colors MUST be HSL.
     --muted: 220 20% 20%;
     --muted-foreground: 220 10% 65%;
 
-    --accent: 0 60% 57%;
+    --accent: 210 80% 55%;
     --accent-foreground: 0 0% 100%;
 
     --border: 220 20% 22%;
     --input: 220 20% 22%;
-    --ring: 0 60% 57%;
+    --ring: 210 80% 55%;
   }
 }
 
@@ -426,15 +426,15 @@ All colors MUST be HSL.
     animation: gradient-wave 15s ease infinite;
   }
 
-  /* Brand color gradient for buttons using coral and beige */
+  /* Brand color gradient for buttons using blue tones */
   .bg-gradient-moving {
     background: linear-gradient(
       -45deg,
-      hsl(0 60% 57%),
-      hsl(10 50% 62%),
-      hsl(20 40% 68%),
-      hsl(10 50% 62%),
-      hsl(0 60% 57%)
+      hsl(210 80% 55%),
+      hsl(210 75% 60%),
+      hsl(210 70% 65%),
+      hsl(210 75% 60%),
+      hsl(210 80% 55%)
     );
     background-size: 400% 400%;
     animation: gradient-wave 12s ease infinite;
@@ -443,9 +443,9 @@ All colors MUST be HSL.
   .bg-gradient-animated {
     background: linear-gradient(
       135deg,
-      hsl(0 60% 57%) 0%,
-      hsl(10 50% 62%) 50%,
-      hsl(0 60% 57%) 100%
+      hsl(210 80% 55%) 0%,
+      hsl(210 75% 60%) 50%,
+      hsl(210 80% 55%) 100%
     );
     background-size: 200% 200%;
     animation: gradient-shift 8s ease infinite;
