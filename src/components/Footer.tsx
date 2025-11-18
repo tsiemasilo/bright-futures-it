@@ -27,35 +27,6 @@ const Footer = () => {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
       </div>
 
-      {/* Newsletter Section */}
-      <div className="relative border-b border-white/10">
-        <div className="container mx-auto px-4 py-12">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-4 animate-bounce-subtle">
-              <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium">Stay Updated</span>
-            </div>
-            <h3 className="text-2xl md:text-3xl font-bold">
-              Ready to Transform Your Business?
-            </h3>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Get in touch with us today to discuss how our IT solutions can help your business thrive
-            </p>
-            <Button 
-              asChild 
-              size="lg" 
-              className="bg-gradient-hero hover:opacity-90 shadow-hover group"
-              data-testid="button-footer-contact"
-            >
-              <Link to="/contact">
-                Get Started
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer Content */}
       <div className="relative container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
