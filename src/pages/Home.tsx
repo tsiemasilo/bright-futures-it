@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import heroImage from "@/assets/hero-tech.jpg";
+import heroImage from "@/assets/hero-tech-bg.jpg";
 import { FaRocket, FaShieldAlt, FaUsers, FaAward, FaCheckCircle, FaLaptopCode, FaLayerGroup, FaChartLine } from 'react-icons/fa';
 import { HiLightningBolt, HiTrendingUp, HiArrowRight, HiShieldCheck } from 'react-icons/hi';
 import { RiSparklingFill } from 'react-icons/ri';
@@ -77,9 +77,9 @@ const Home = () => {
           <img 
             src={heroImage} 
             alt="Technology background" 
-            className="w-full h-full object-cover opacity-10"
+            className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-secondary/30" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/85 to-secondary/40" />
           
           {/* Animated background elements */}
           <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
