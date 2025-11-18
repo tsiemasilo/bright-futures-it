@@ -1,4 +1,4 @@
-import { Laptop, Code, Shield, Network, Wrench, Cloud } from "lucide-react";
+import { MonitorSmartphone, Code2, ShieldCheck, Network, Server, Cloud, Database, Cpu, Smartphone, Globe, Lock, Zap, CheckCircle2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 const Services = () => {
   const services = [
     {
-      icon: Laptop,
+      icon: MonitorSmartphone,
       title: "Hardware Supply and Maintenance",
       description: "We provide top-quality laptops, printers, and accessories from leading brands. Our maintenance services ensure your hardware performs optimally throughout its lifecycle.",
       features: [
@@ -17,10 +17,12 @@ const Services = () => {
         "Computer accessories and peripherals",
         "Regular maintenance and support",
         "Hardware upgrades and repairs"
-      ]
+      ],
+      gradient: "from-blue-500 to-cyan-500",
+      bgPattern: "bg-blue-500/5"
     },
     {
-      icon: Code,
+      icon: Code2,
       title: "Software & Mobile App Development",
       description: "Custom software solutions and mobile applications tailored to your business needs. We build scalable, secure, and user-friendly applications that drive results.",
       features: [
@@ -29,10 +31,12 @@ const Services = () => {
         "Web application development",
         "API development and integration",
         "Software maintenance and updates"
-      ]
+      ],
+      gradient: "from-purple-500 to-pink-500",
+      bgPattern: "bg-purple-500/5"
     },
     {
-      icon: Shield,
+      icon: ShieldCheck,
       title: "Security Technologies",
       description: "Comprehensive security solutions to protect your premises and digital assets. From physical security to cybersecurity, we've got you covered.",
       features: [
@@ -41,7 +45,9 @@ const Services = () => {
         "IoT security solutions",
         "Network security implementation",
         "Security audits and consulting"
-      ]
+      ],
+      gradient: "from-emerald-500 to-teal-500",
+      bgPattern: "bg-emerald-500/5"
     },
     {
       icon: Network,
@@ -53,10 +59,12 @@ const Services = () => {
         "Technology assessment",
         "Digital transformation consulting",
         "Vendor selection and management"
-      ]
+      ],
+      gradient: "from-orange-500 to-red-500",
+      bgPattern: "bg-orange-500/5"
     },
     {
-      icon: Wrench,
+      icon: Server,
       title: "Networking and Infrastructure Setup",
       description: "Build a robust and reliable IT infrastructure for your organization. We design, install, and maintain network systems that support your business growth.",
       features: [
@@ -65,7 +73,9 @@ const Services = () => {
         "Cloud infrastructure migration",
         "Network monitoring and management",
         "Disaster recovery planning"
-      ]
+      ],
+      gradient: "from-indigo-500 to-blue-500",
+      bgPattern: "bg-indigo-500/5"
     },
     {
       icon: Cloud,
@@ -77,18 +87,46 @@ const Services = () => {
         "Backup and disaster recovery",
         "Cloud security implementation",
         "Multi-cloud strategy"
-      ]
+      ],
+      gradient: "from-sky-500 to-cyan-500",
+      bgPattern: "bg-sky-500/5"
     }
   ];
+
+  const techIcons = [Database, Cpu, Smartphone, Globe, Lock, Zap];
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
 
       {/* Hero Section */}
-      <section id="services" className="pt-32 md:pt-40 pb-16 bg-gradient-to-br from-secondary/30 to-background scroll-mt-20">
-        <div className="container mx-auto px-4">
+      <section id="services" className="relative pt-32 md:pt-40 pb-16 bg-gradient-to-br from-secondary/30 to-background scroll-mt-20 overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
+        
+        {/* Floating tech icons */}
+        {techIcons.map((Icon, index) => (
+          <div 
+            key={index}
+            className="absolute opacity-5 animate-float"
+            style={{
+              top: `${20 + (index * 15)}%`,
+              left: `${10 + (index * 15)}%`,
+              animationDelay: `${index * 0.5}s`,
+              animationDuration: `${3 + (index * 0.5)}s`
+            }}
+          >
+            <Icon size={48} />
+          </div>
+        ))}
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4" data-testid="badge-services">
+              <Zap className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary">Comprehensive Solutions</span>
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold">Our Services</h1>
             <p className="text-xl text-muted-foreground">
               Comprehensive IT solutions designed to elevate your business operations and drive digital transformation
@@ -106,29 +144,46 @@ const Services = () => {
               return (
                 <Card 
                   key={index} 
-                  className="group hover:shadow-hover transition-all duration-300 border-border hover:border-primary/50 animate-fade-in"
+                  className="group relative overflow-hidden hover:shadow-hover transition-all duration-500 border-border hover:border-primary/50 animate-fade-in shimmer-effect"
                   style={{ animationDelay: `${index * 100}ms` }}
+                  data-testid={`card-service-${index}`}
                 >
-                  <CardContent className="p-8 space-y-6">
+                  {/* Background gradient overlay */}
+                  <div className={`absolute inset-0 ${service.bgPattern} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                  
+                  {/* Decorative corner accent */}
+                  <div className="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-10 transition-opacity duration-500">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} rounded-full blur-2xl`} />
+                  </div>
+                  
+                  <CardContent className="p-8 space-y-6 relative z-10">
                     <div className="flex items-start space-x-4">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-hero flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                        <Icon className="text-white" size={28} />
+                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl`}>
+                        <Icon className="text-white" size={32} />
                       </div>
-                      <div>
-                        <h3 className="font-bold text-2xl mb-2">{service.title}</h3>
-                        <p className="text-muted-foreground">{service.description}</p>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-2xl mb-2 group-hover:text-primary transition-colors">{service.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed">{service.description}</p>
                       </div>
                     </div>
 
-                    <div className="border-t border-border pt-4">
-                      <h4 className="font-semibold mb-3 text-sm uppercase tracking-wide text-muted-foreground">
+                    <div className="border-t border-border pt-6 space-y-3">
+                      <h4 className="font-semibold mb-3 text-sm uppercase tracking-wide text-muted-foreground flex items-center gap-2">
+                        <CheckCircle2 size={16} className="text-primary" />
                         Key Features
                       </h4>
-                      <ul className="space-y-2">
+                      <ul className="space-y-3">
                         {service.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start space-x-2 text-sm">
-                            <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                            <span>{feature}</span>
+                          <li 
+                            key={idx} 
+                            className="flex items-start space-x-3 text-sm group/item animate-fade-in"
+                            style={{ animationDelay: `${idx * 50}ms` }}
+                          >
+                            <div className={`w-5 h-5 rounded-full bg-gradient-to-br ${service.gradient} flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform`}>
+                              <CheckCircle2 size={12} className="text-white" />
+                            </div>
+                            <span className="leading-relaxed">{feature}</span>
                           </li>
                         ))}
                       </ul>
@@ -142,9 +197,20 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-brand-dark text-white">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-16 md:py-24 bg-brand-dark text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-gradient-hero" />
+          <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+        </div>
+        
+        <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-3xl mx-auto space-y-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-4 animate-bounce-subtle">
+              <Zap className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium">Get Started Today</span>
+            </div>
+            
             <h2 className="text-3xl md:text-4xl font-bold">
               Ready to Elevate Your IT Infrastructure?
             </h2>
@@ -152,10 +218,13 @@ const Services = () => {
               Let our experts help you choose the right solutions for your business needs
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary" className="shadow-hover">
-                <Link to="/contact">Request a Consultation</Link>
+              <Button asChild size="lg" variant="secondary" className="shadow-hover group" data-testid="button-request-consultation">
+                <Link to="/contact">
+                  Request a Consultation
+                  <Zap className="ml-2 group-hover:rotate-12 transition-transform" size={20} />
+                </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-dark">
+              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-dark" data-testid="button-learn-more-about">
                 <Link to="/about">Learn More About Us</Link>
               </Button>
             </div>

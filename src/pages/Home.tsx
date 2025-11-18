@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Shield, Laptop, Code, Network, Users, Award } from "lucide-react";
+import { ArrowRight, Sparkles, MonitorSmartphone, Code2, ShieldCheck, Network, Users, Award, Zap, TrendingUp, CheckCircle2, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
@@ -9,31 +9,57 @@ import heroImage from "@/assets/hero-tech.jpg";
 const Home = () => {
   const services = [
     {
-      icon: Laptop,
+      icon: MonitorSmartphone,
       title: "Hardware Solutions",
       description: "Top-quality laptops, printers, and IT equipment for your business needs.",
+      gradient: "from-blue-500 to-cyan-500",
     },
     {
-      icon: Code,
+      icon: Code2,
       title: "Software Development",
       description: "Custom software and mobile applications tailored to your requirements.",
+      gradient: "from-purple-500 to-pink-500",
     },
     {
-      icon: Shield,
+      icon: ShieldCheck,
       title: "Security Technologies",
       description: "CCTV, access control, and IoT security solutions for complete protection.",
+      gradient: "from-emerald-500 to-teal-500",
     },
     {
       icon: Network,
       title: "IT Consulting",
       description: "Expert guidance for system integration and IT infrastructure planning.",
+      gradient: "from-orange-500 to-red-500",
     },
   ];
 
   const values = [
-    { icon: Shield, title: "Integrity", description: "Honest and transparent in all we do" },
-    { icon: Award, title: "Excellence", description: "Committed to delivering quality" },
-    { icon: Users, title: "Empowerment", description: "Building the next generation" },
+    { 
+      icon: ShieldCheck, 
+      title: "Integrity", 
+      description: "Honest and transparent in all we do",
+      color: "text-blue-500"
+    },
+    { 
+      icon: Award, 
+      title: "Excellence", 
+      description: "Committed to delivering quality",
+      color: "text-amber-500"
+    },
+    { 
+      icon: Users, 
+      title: "Empowerment", 
+      description: "Building the next generation",
+      color: "text-emerald-500"
+    },
+  ];
+
+  const stats = [
+    { value: "500+", label: "Projects Completed", icon: CheckCircle2 },
+    { value: "100+", label: "Happy Clients", icon: Users },
+    { value: "15+", label: "Years Experience", icon: TrendingUp },
+    { value: "24/7", label: "Support Available", icon: Rocket },
   ];
 
   return (
@@ -49,10 +75,19 @@ const Home = () => {
             className="w-full h-full object-cover opacity-10"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-secondary/30" />
+          
+          {/* Animated background elements */}
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4 animate-bounce-subtle" data-testid="badge-innovation">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary">Innovation in Technology</span>
+            </div>
+            
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
               Empowering Africa Through
               <span className="block bg-gradient-hero bg-clip-text text-transparent mt-2">
@@ -64,12 +99,13 @@ const Home = () => {
               to businesses across South Africa and beyond.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button asChild size="lg" className="bg-gradient-hero hover:opacity-90 shadow-hover">
+              <Button asChild size="lg" className="bg-gradient-hero hover:opacity-90 shadow-hover group" data-testid="button-explore-services">
                 <Link to="/services">
-                  Explore Services <ArrowRight className="ml-2" size={20} />
+                  Explore Services 
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" data-testid="button-get-in-touch">
                 <Link to="/contact">Get In Touch</Link>
               </Button>
             </div>
@@ -77,10 +113,42 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Stats Section */}
+      <section className="py-16 bg-gradient-to-br from-brand-dark to-brand-dark/90 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-accent rounded-full blur-3xl" />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <div 
+                  key={index} 
+                  className="text-center space-y-2 animate-fade-in"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                  data-testid={`stat-${index}`}
+                >
+                  <Icon className="w-8 h-8 mx-auto text-primary mb-2" />
+                  <div className="text-3xl md:text-4xl font-bold">{stat.value}</div>
+                  <div className="text-sm text-gray-300">{stat.label}</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Services Preview */}
       <section id="services" className="py-16 md:py-24 bg-secondary/30 scroll-mt-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4" data-testid="badge-services">
+              <Zap className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary">Our Services</span>
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Offer</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Comprehensive IT solutions designed to elevate your business operations
@@ -93,24 +161,37 @@ const Home = () => {
               return (
                 <Card 
                   key={index} 
-                  className="group hover:shadow-hover transition-all duration-300 border-border hover:border-primary/50 animate-fade-in"
+                  className="group relative overflow-hidden hover:shadow-hover transition-all duration-500 border-border hover:border-primary/50 animate-fade-in shimmer-effect"
                   style={{ animationDelay: `${index * 100}ms` }}
+                  data-testid={`card-service-${index}`}
                 >
-                  <CardContent className="p-6 space-y-4">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-hero flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Icon className="text-white" size={24} />
+                  {/* Gradient background on hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                  
+                  <CardContent className="p-6 space-y-4 relative">
+                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}>
+                      <Icon className="text-white" size={28} />
                     </div>
-                    <h3 className="font-semibold text-xl">{service.title}</h3>
-                    <p className="text-muted-foreground text-sm">{service.description}</p>
+                    <h3 className="font-semibold text-xl group-hover:text-primary transition-colors">{service.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
+                    
+                    {/* Arrow indicator */}
+                    <div className="flex items-center text-primary opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                      <span className="text-sm font-medium">Learn more</span>
+                      <ArrowRight className="ml-1 w-4 h-4" />
+                    </div>
                   </CardContent>
                 </Card>
               );
             })}
           </div>
 
-          <div className="text-center mt-12">
-            <Button asChild variant="outline" size="lg">
-              <Link to="/services">View All Services <ArrowRight className="ml-2" size={20} /></Link>
+          <div className="text-center mt-12 animate-fade-in">
+            <Button asChild variant="outline" size="lg" className="group" data-testid="button-view-all-services">
+              <Link to="/services">
+                View All Services 
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+              </Link>
             </Button>
           </div>
         </div>
@@ -120,7 +201,12 @@ const Home = () => {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+            <div className="space-y-6 animate-slide-right">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4" data-testid="badge-about">
+                <TrendingUp className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-primary">About Us</span>
+              </div>
+              
               <h2 className="text-3xl md:text-4xl font-bold">
                 Leading IT Innovation in South Africa
               </h2>
@@ -133,22 +219,29 @@ const Home = () => {
                 developing the next generation of tech professionals through our in-service training 
                 and internship programs.
               </p>
-              <Button asChild className="bg-gradient-hero hover:opacity-90">
-                <Link to="/about">Learn More About Us <ArrowRight className="ml-2" size={20} /></Link>
+              <Button asChild className="bg-gradient-hero hover:opacity-90 group" data-testid="button-learn-more">
+                <Link to="/about">
+                  Learn More About Us 
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                </Link>
               </Button>
             </div>
 
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-6 animate-slide-left">
               {values.map((value, index) => {
                 const Icon = value.icon;
                 return (
-                  <Card key={index} className="border-border shadow-card">
+                  <Card 
+                    key={index} 
+                    className="group border-border shadow-card hover:shadow-hover transition-all duration-500 overflow-hidden"
+                    data-testid={`card-value-${index}`}
+                  >
                     <CardContent className="p-6 flex items-start space-x-4">
-                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <Icon className="text-primary" size={20} />
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500`}>
+                        <Icon className={`${value.color} group-hover:rotate-12 transition-transform duration-500`} size={24} />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-lg mb-1">{value.title}</h3>
+                        <h3 className="font-semibold text-lg mb-1 group-hover:text-primary transition-colors">{value.title}</h3>
                         <p className="text-muted-foreground text-sm">{value.description}</p>
                       </div>
                     </CardContent>
@@ -164,16 +257,22 @@ const Home = () => {
       <section className="py-16 md:py-24 bg-brand-dark text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-gradient-hero" />
+          <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
+          <Rocket className="w-16 h-16 mx-auto mb-6 text-primary animate-bounce-subtle" />
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Transform Your Business?
           </h2>
           <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
             Let's discuss how our IT solutions can drive your success forward
           </p>
-          <Button asChild size="lg" variant="secondary" className="shadow-hover">
-            <Link to="/contact">Contact Us Today <ArrowRight className="ml-2" size={20} /></Link>
+          <Button asChild size="lg" variant="secondary" className="shadow-hover group" data-testid="button-contact-us">
+            <Link to="/contact">
+              Contact Us Today 
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+            </Link>
           </Button>
         </div>
       </section>
