@@ -41,7 +41,7 @@ const Home = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-24 md:pt-32 pb-16 md:pb-24 overflow-hidden">
+      <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden scroll-mt-20">
         <div className="absolute inset-0 z-0">
           <img 
             src={heroImage} 
@@ -78,7 +78,7 @@ const Home = () => {
       </section>
 
       {/* Services Preview */}
-      <section className="py-16 md:py-24 bg-secondary/30">
+      <section id="services" className="py-16 md:py-24 bg-secondary/30 scroll-mt-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Offer</h2>

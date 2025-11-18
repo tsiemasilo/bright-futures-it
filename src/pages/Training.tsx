@@ -68,7 +68,7 @@ const Training = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-24 md:pt-32 pb-16 bg-gradient-to-br from-secondary/30 to-background">
+      <section id="training" className="pt-32 md:pt-40 pb-16 bg-gradient-to-br from-secondary/30 to-background scroll-mt-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
             <h1 className="text-4xl md:text-5xl font-bold">
