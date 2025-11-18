@@ -1,19 +1,17 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { HiMail, HiPhone, HiLocationMarker, HiArrowRight } from 'react-icons/hi';
-import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
-import { HiDesktopComputer, HiShieldCheck, HiLightningBolt } from 'react-icons/hi';
-import { BiCodeAlt } from 'react-icons/bi';
-import { MdOutlineBarChart } from 'react-icons/md';
+import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram, FaServer, FaLock, FaChartLine } from 'react-icons/fa';
+import { HiCode } from 'react-icons/hi';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const services = [
-    { name: "Hardware Solutions", icon: HiDesktopComputer, color: "from-blue-500 to-cyan-500" },
-    { name: "Software Development", icon: BiCodeAlt, color: "from-purple-500 to-pink-500" },
-    { name: "Security Technologies", icon: HiShieldCheck, color: "from-emerald-500 to-teal-500" },
-    { name: "IT Consulting", icon: MdOutlineBarChart, color: "from-orange-500 to-amber-500" },
+    { name: "Hardware Solutions", icon: FaServer, color: "from-blue-500 to-cyan-500" },
+    { name: "Software Development", icon: HiCode, color: "from-purple-500 to-pink-500" },
+    { name: "Security Technologies", icon: FaLock, color: "from-emerald-500 to-teal-500" },
+    { name: "IT Consulting", icon: FaChartLine, color: "from-orange-500 to-amber-500" },
   ];
 
   const socialLinks = [
