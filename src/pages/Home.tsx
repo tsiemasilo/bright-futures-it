@@ -4,36 +4,35 @@ import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import heroImage from "@/assets/hero-tech.jpg";
-import { FaRocket, FaShieldAlt, FaCode, FaNetworkWired, FaUsers, FaAward, FaCheckCircle } from 'react-icons/fa';
-import { HiLightningBolt, HiTrendingUp, HiArrowRight } from 'react-icons/hi';
-import { MdSecurity, MdDevices } from 'react-icons/md';
+import { FaRocket, FaShieldAlt, FaUsers, FaAward, FaCheckCircle, FaLaptopCode, FaLayerGroup, FaChartLine } from 'react-icons/fa';
+import { HiLightningBolt, HiTrendingUp, HiArrowRight, HiShieldCheck } from 'react-icons/hi';
 import { RiSparklingFill } from 'react-icons/ri';
 
 const Home = () => {
   const services = [
     {
-      icon: MdDevices,
+      icon: FaLaptopCode,
       title: "Hardware Solutions",
       description: "Top-quality laptops, printers, and IT equipment for your business needs.",
-      gradient: "from-blue-500 via-cyan-500 to-blue-600",
+      gradient: "from-gray-600 via-gray-700 to-gray-800",
     },
     {
-      icon: FaCode,
+      icon: FaLayerGroup,
       title: "Software Development",
       description: "Custom software and mobile applications tailored to your requirements.",
-      gradient: "from-purple-500 via-pink-500 to-purple-600",
+      gradient: "from-slate-600 via-slate-700 to-slate-800",
     },
     {
-      icon: MdSecurity,
+      icon: HiShieldCheck,
       title: "Security Technologies",
       description: "CCTV, access control, and IoT security solutions for complete protection.",
-      gradient: "from-emerald-500 via-teal-500 to-emerald-600",
+      gradient: "from-zinc-600 via-zinc-700 to-zinc-800",
     },
     {
-      icon: FaNetworkWired,
+      icon: FaChartLine,
       title: "IT Consulting",
       description: "Expert guidance for system integration and IT infrastructure planning.",
-      gradient: "from-orange-500 via-red-500 to-orange-600",
+      gradient: "from-neutral-600 via-neutral-700 to-neutral-800",
     },
   ];
 
