@@ -3,7 +3,7 @@ import { NavLink } from "@/components/NavLink";
 import { Button } from "@/components/ui/button";
 import { HiMenu, HiX } from 'react-icons/hi';
 import { useLocation } from 'react-router-dom';
-import edightLogo from '@/assets/edight-logo.png';
+import edightLogo from '@/assets/edight-logo.svg';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
