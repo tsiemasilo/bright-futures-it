@@ -10,7 +10,7 @@ import { RiSparklingFill } from 'react-icons/ri';
 import { Rocket, Globe, Zap, Shield, TrendingUp, Sparkles } from "lucide-react";
 
 const Home = () => {
-  const homeIcons = [Rocket, Globe, Zap, Shield, TrendingUp, Sparkles];
+  const servicesIcons = [Rocket, Globe, Zap, Shield, TrendingUp, Sparkles, Rocket, Globe, Zap, Shield, TrendingUp, Sparkles, Rocket, Globe];
 
   const services = [
     {
@@ -151,26 +151,34 @@ const Home = () => {
       {/* Services Preview */}
       <section id="services" className="relative py-16 md:py-24 bg-secondary/30 scroll-mt-20 overflow-hidden">
         {/* Floating icons */}
-        {homeIcons.map((Icon, index) => {
+        {servicesIcons.map((Icon, index) => {
           const positions = [
-            { top: '10%', left: '8%' },
-            { top: '25%', right: '10%' },
-            { top: '70%', left: '6%' },
-            { top: '85%', right: '8%' },
-            { top: '45%', left: '5%' },
-            { top: '60%', right: '12%' }
+            { top: '5%', left: '5%' },
+            { top: '15%', right: '8%' },
+            { top: '25%', left: '12%' },
+            { top: '35%', right: '15%' },
+            { top: '45%', left: '8%' },
+            { top: '55%', right: '10%' },
+            { top: '65%', left: '15%' },
+            { top: '75%', right: '12%' },
+            { top: '12%', left: '20%' },
+            { top: '28%', right: '5%' },
+            { top: '42%', left: '3%' },
+            { top: '58%', right: '18%' },
+            { top: '72%', left: '10%' },
+            { top: '88%', right: '6%' }
           ];
           return (
             <div 
               key={index}
-              className="absolute opacity-5 animate-float"
+              className="absolute opacity-15 text-primary animate-float"
               style={{
                 ...positions[index],
-                animationDelay: `${index * 0.5}s`,
-                animationDuration: `${3 + (index * 0.5)}s`
+                animationDelay: `${index * 0.3}s`,
+                animationDuration: `${3 + (index * 0.4)}s`
               }}
             >
-              <Icon size={48} />
+              <Icon size={56} />
             </div>
           );
         })}
