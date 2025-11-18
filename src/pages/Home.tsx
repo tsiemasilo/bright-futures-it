@@ -1,54 +1,57 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, MonitorSmartphone, Code2, ShieldCheck, Network, Users, Award, Zap, TrendingUp, CheckCircle2, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import heroImage from "@/assets/hero-tech.jpg";
+import { FaRocket, FaShieldAlt, FaCode, FaNetworkWired, FaUsers, FaAward, FaCheckCircle } from 'react-icons/fa';
+import { HiLightningBolt, HiTrendingUp, HiArrowRight } from 'react-icons/hi';
+import { MdSecurity, MdDevices } from 'react-icons/md';
+import { RiSparklingFill } from 'react-icons/ri';
 
 const Home = () => {
   const services = [
     {
-      icon: MonitorSmartphone,
+      icon: MdDevices,
       title: "Hardware Solutions",
       description: "Top-quality laptops, printers, and IT equipment for your business needs.",
-      gradient: "from-blue-500 to-cyan-500",
+      gradient: "from-blue-500 via-cyan-500 to-blue-600",
     },
     {
-      icon: Code2,
+      icon: FaCode,
       title: "Software Development",
       description: "Custom software and mobile applications tailored to your requirements.",
-      gradient: "from-purple-500 to-pink-500",
+      gradient: "from-purple-500 via-pink-500 to-purple-600",
     },
     {
-      icon: ShieldCheck,
+      icon: MdSecurity,
       title: "Security Technologies",
       description: "CCTV, access control, and IoT security solutions for complete protection.",
-      gradient: "from-emerald-500 to-teal-500",
+      gradient: "from-emerald-500 via-teal-500 to-emerald-600",
     },
     {
-      icon: Network,
+      icon: FaNetworkWired,
       title: "IT Consulting",
       description: "Expert guidance for system integration and IT infrastructure planning.",
-      gradient: "from-orange-500 to-red-500",
+      gradient: "from-orange-500 via-red-500 to-orange-600",
     },
   ];
 
   const values = [
     { 
-      icon: ShieldCheck, 
+      icon: FaShieldAlt, 
       title: "Integrity", 
       description: "Honest and transparent in all we do",
       color: "text-blue-500"
     },
     { 
-      icon: Award, 
+      icon: FaAward, 
       title: "Excellence", 
       description: "Committed to delivering quality",
       color: "text-amber-500"
     },
     { 
-      icon: Users, 
+      icon: FaUsers, 
       title: "Empowerment", 
       description: "Building the next generation",
       color: "text-emerald-500"
@@ -56,10 +59,10 @@ const Home = () => {
   ];
 
   const stats = [
-    { value: "500+", label: "Projects Completed", icon: CheckCircle2 },
-    { value: "100+", label: "Happy Clients", icon: Users },
-    { value: "15+", label: "Years Experience", icon: TrendingUp },
-    { value: "24/7", label: "Support Available", icon: Rocket },
+    { value: "500+", label: "Projects Completed", icon: FaCheckCircle },
+    { value: "100+", label: "Happy Clients", icon: FaUsers },
+    { value: "15+", label: "Years Experience", icon: HiTrendingUp },
+    { value: "24/7", label: "Support Available", icon: FaRocket },
   ];
 
   return (
@@ -84,7 +87,7 @@ const Home = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4 animate-bounce-subtle" data-testid="badge-innovation">
-              <Sparkles className="w-4 h-4 text-primary" />
+              <RiSparklingFill className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">Innovation in Technology</span>
             </div>
             
@@ -99,13 +102,13 @@ const Home = () => {
               to businesses across South Africa and beyond.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button asChild size="lg" className="bg-gradient-hero hover:opacity-90 shadow-hover group" data-testid="button-explore-services">
+              <Button asChild size="lg" className="bg-gradient-moving hover:scale-105 shadow-hover group btn-glow transition-all duration-300" data-testid="button-explore-services">
                 <Link to="/services">
                   Explore Services 
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                  <HiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" data-testid="button-get-in-touch">
+              <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300" data-testid="button-get-in-touch">
                 <Link to="/contact">Get In Touch</Link>
               </Button>
             </div>
@@ -114,10 +117,10 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-br from-brand-dark to-brand-dark/90 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-accent rounded-full blur-3xl" />
+      <section className="py-16 bg-gradient-moving text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-white rounded-full blur-3xl animate-float-diagonal" />
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-white rounded-full blur-3xl animate-float" />
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -146,7 +149,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4" data-testid="badge-services">
-              <Zap className="w-4 h-4 text-primary" />
+              <HiLightningBolt className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">Our Services</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Offer</h2>
@@ -169,7 +172,7 @@ const Home = () => {
                   <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
                   
                   <CardContent className="p-6 space-y-4 relative">
-                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}>
+                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg animate-gradient-wave`}>
                       <Icon className="text-white" size={28} />
                     </div>
                     <h3 className="font-semibold text-xl group-hover:text-primary transition-colors">{service.title}</h3>
@@ -178,7 +181,7 @@ const Home = () => {
                     {/* Arrow indicator */}
                     <div className="flex items-center text-primary opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
                       <span className="text-sm font-medium">Learn more</span>
-                      <ArrowRight className="ml-1 w-4 h-4" />
+                      <HiArrowRight className="ml-1 w-4 h-4" />
                     </div>
                   </CardContent>
                 </Card>
@@ -187,10 +190,10 @@ const Home = () => {
           </div>
 
           <div className="text-center mt-12 animate-fade-in">
-            <Button asChild variant="outline" size="lg" className="group" data-testid="button-view-all-services">
+            <Button asChild variant="outline" size="lg" className="group hover:scale-105 transition-all duration-300" data-testid="button-view-all-services">
               <Link to="/services">
                 View All Services 
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                <HiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </Link>
             </Button>
           </div>
@@ -203,7 +206,7 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-slide-right">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4" data-testid="badge-about">
-                <TrendingUp className="w-4 h-4 text-primary" />
+                <HiTrendingUp className="w-4 h-4 text-primary" />
                 <span className="text-sm font-medium text-primary">About Us</span>
               </div>
               
@@ -219,10 +222,10 @@ const Home = () => {
                 developing the next generation of tech professionals through our in-service training 
                 and internship programs.
               </p>
-              <Button asChild className="bg-gradient-hero hover:opacity-90 group" data-testid="button-learn-more">
+              <Button asChild className="bg-gradient-moving hover:scale-105 group btn-glow transition-all duration-300" data-testid="button-learn-more">
                 <Link to="/about">
                   Learn More About Us 
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                  <HiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                 </Link>
               </Button>
             </div>
@@ -254,24 +257,23 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-brand-dark text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-hero" />
-          <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
+      <section className="py-16 md:py-24 bg-gradient-moving text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl animate-float-diagonal" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <Rocket className="w-16 h-16 mx-auto mb-6 text-primary animate-bounce-subtle" />
+          <FaRocket className="w-16 h-16 mx-auto mb-6 text-white drop-shadow-lg animate-bounce-subtle" />
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Transform Your Business?
           </h2>
-          <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
             Let's discuss how our IT solutions can drive your success forward
           </p>
-          <Button asChild size="lg" variant="secondary" className="shadow-hover group" data-testid="button-contact-us">
+          <Button asChild size="lg" variant="secondary" className="shadow-hover group hover:scale-110 btn-glow transition-all duration-300" data-testid="button-contact-us">
             <Link to="/contact">
               Contact Us Today 
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+              <HiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
             </Link>
           </Button>
         </div>

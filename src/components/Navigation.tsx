@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "@/components/NavLink";
-import { Menu, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { HiMenu, HiX } from 'react-icons/hi';
+import { RiSparklingFill } from 'react-icons/ri';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,9 +21,9 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           <NavLink to="/" className="flex items-center space-x-3 group">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-hero opacity-20 blur-xl group-hover:opacity-30 transition-opacity"></div>
-              <div className="relative w-10 h-10 md:w-12 md:h-12 bg-gradient-hero rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                <Sparkles className="text-white w-5 h-5 md:w-6 md:h-6" />
+              <div className="absolute inset-0 bg-gradient-moving opacity-30 blur-xl group-hover:opacity-40 transition-opacity"></div>
+              <div className="relative w-10 h-10 md:w-12 md:h-12 bg-gradient-moving rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <RiSparklingFill className="text-white w-5 h-5 md:w-6 md:h-6" />
               </div>
             </div>
             <div className="flex flex-col">
@@ -48,7 +49,7 @@ const Navigation = () => {
                 <span className="absolute inset-0 bg-primary/5 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300"></span>
               </NavLink>
             ))}
-            <Button asChild variant="default" className="ml-4 bg-gradient-hero hover:opacity-90 shadow-hover transform hover:scale-105 transition-all duration-300">
+            <Button asChild variant="default" className="ml-4 bg-gradient-moving hover:scale-105 shadow-hover btn-glow transition-all duration-300">
               <NavLink to="/contact">Get Started</NavLink>
             </Button>
           </div>
@@ -58,7 +59,7 @@ const Navigation = () => {
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-foreground p-2 hover:bg-primary/10 rounded-lg transition-colors"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
           </button>
         </div>
 
@@ -76,7 +77,7 @@ const Navigation = () => {
                 {link.label}
               </NavLink>
             ))}
-            <Button asChild variant="default" className="w-full bg-gradient-hero hover:opacity-90 shadow-hover">
+            <Button asChild variant="default" className="w-full bg-gradient-moving hover:scale-105 shadow-hover btn-glow transition-all duration-300">
               <NavLink to="/contact" onClick={() => setIsOpen(false)}>
                 Get Started
               </NavLink>

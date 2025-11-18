@@ -1,29 +1,31 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Linkedin, Facebook, Twitter, Instagram, ArrowRight, Sparkles, Code2, ShieldCheck, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { HiMail, HiPhone, HiLocationMarker, HiArrowRight } from 'react-icons/hi';
+import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram, FaCode, FaNetworkWired } from 'react-icons/fa';
+import { MdSecurity } from 'react-icons/md';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const services = [
-    { name: "Hardware Solutions", icon: Code2 },
-    { name: "Software Development", icon: Code2 },
-    { name: "Security Technologies", icon: ShieldCheck },
-    { name: "IT Consulting", icon: Network },
+    { name: "Hardware Solutions", icon: FaCode },
+    { name: "Software Development", icon: FaCode },
+    { name: "Security Technologies", icon: MdSecurity },
+    { name: "IT Consulting", icon: FaNetworkWired },
   ];
 
   const socialLinks = [
-    { name: "LinkedIn", icon: Linkedin, href: "#" },
-    { name: "Facebook", icon: Facebook, href: "#" },
-    { name: "Twitter", icon: Twitter, href: "#" },
-    { name: "Instagram", icon: Instagram, href: "#" },
+    { name: "LinkedIn", icon: FaLinkedin, href: "#" },
+    { name: "Facebook", icon: FaFacebook, href: "#" },
+    { name: "Twitter", icon: FaTwitter, href: "#" },
+    { name: "Instagram", icon: FaInstagram, href: "#" },
   ];
 
   return (
     <footer className="relative bg-gradient-to-br from-brand-dark via-brand-dark to-gray-900 text-white overflow-hidden">
       {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl animate-float" />
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl animate-float-diagonal" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
       </div>
 
@@ -52,7 +54,7 @@ const Footer = () => {
                   <a
                     key={index}
                     href={social.href}
-                    className="w-10 h-10 rounded-lg bg-white/5 hover:bg-gradient-hero flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1 group"
+                    className="w-10 h-10 rounded-lg bg-white/5 hover:bg-gradient-moving flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1 group btn-glow"
                     aria-label={social.name}
                     data-testid={`link-social-${social.name.toLowerCase()}`}
                   >
@@ -83,7 +85,7 @@ const Footer = () => {
                   className="text-gray-300 hover:text-primary transition-all duration-300 group flex items-center gap-2 w-fit"
                   data-testid={`link-footer-${link.label.toLowerCase().replace(' ', '-')}`}
                 >
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 -ml-5 group-hover:ml-0 transition-all" />
+                  <HiArrowRight size={14} className="opacity-0 group-hover:opacity-100 -ml-5 group-hover:ml-0 transition-all" />
                   <span>{link.label}</span>
                 </Link>
               ))}
@@ -105,7 +107,7 @@ const Footer = () => {
                     className="flex items-center gap-3 text-gray-300 text-sm group cursor-pointer hover:text-primary transition-colors"
                     data-testid={`item-service-${index}`}
                   >
-                    <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-gradient-hero transition-all duration-300 group-hover:scale-110">
+                    <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-gradient-moving transition-all duration-300 group-hover:scale-110 btn-glow">
                       <Icon size={14} className="group-hover:rotate-12 transition-transform" />
                     </div>
                     <span>{service.name}</span>
@@ -123,8 +125,8 @@ const Footer = () => {
             </h4>
             <div className="flex flex-col space-y-4 text-gray-300 text-sm">
               <div className="flex items-start space-x-3 group">
-                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gradient-hero transition-all duration-300">
-                  <MapPin size={18} className="group-hover:scale-110 transition-transform" />
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gradient-moving transition-all duration-300 btn-glow">
+                  <HiLocationMarker size={18} className="group-hover:scale-110 transition-transform" />
                 </div>
                 <div className="pt-2">
                   <p className="font-medium text-white mb-1">Location</p>
@@ -133,8 +135,8 @@ const Footer = () => {
               </div>
               
               <div className="flex items-start space-x-3 group">
-                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gradient-hero transition-all duration-300">
-                  <Phone size={18} className="group-hover:scale-110 transition-transform" />
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gradient-moving transition-all duration-300 btn-glow">
+                  <HiPhone size={18} className="group-hover:scale-110 transition-transform" />
                 </div>
                 <div className="pt-2">
                   <p className="font-medium text-white mb-1">Phone</p>
@@ -146,8 +148,8 @@ const Footer = () => {
               </div>
               
               <div className="flex items-start space-x-3 group">
-                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gradient-hero transition-all duration-300">
-                  <Mail size={18} className="group-hover:scale-110 transition-transform" />
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gradient-moving transition-all duration-300 btn-glow">
+                  <HiMail size={18} className="group-hover:scale-110 transition-transform" />
                 </div>
                 <div className="pt-2">
                   <p className="font-medium text-white mb-1">Email</p>
