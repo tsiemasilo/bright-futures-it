@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { HiMail, HiPhone, HiLocationMarker, HiArrowRight } from 'react-icons/hi';
-import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram, FaCode, FaNetworkWired } from 'react-icons/fa';
-import { MdSecurity } from 'react-icons/md';
+import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { HiDesktopComputer, HiShieldCheck, HiLightningBolt } from 'react-icons/hi';
+import { BiCodeAlt } from 'react-icons/bi';
+import { MdOutlineBarChart } from 'react-icons/md';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const services = [
-    { name: "Hardware Solutions", icon: FaCode },
-    { name: "Software Development", icon: FaCode },
-    { name: "Security Technologies", icon: MdSecurity },
-    { name: "IT Consulting", icon: FaNetworkWired },
+    { name: "Hardware Solutions", icon: HiDesktopComputer, color: "from-blue-500 to-cyan-500" },
+    { name: "Software Development", icon: BiCodeAlt, color: "from-purple-500 to-pink-500" },
+    { name: "Security Technologies", icon: HiShieldCheck, color: "from-emerald-500 to-teal-500" },
+    { name: "IT Consulting", icon: MdOutlineBarChart, color: "from-orange-500 to-amber-500" },
   ];
 
   const socialLinks = [
@@ -98,19 +100,24 @@ const Footer = () => {
               <div className="w-1 h-6 bg-gradient-hero rounded-full" />
               Our Services
             </h4>
-            <ul className="flex flex-col space-y-3">
+            <ul className="flex flex-col space-y-4">
               {services.map((service, index) => {
                 const Icon = service.icon;
                 return (
                   <li 
                     key={index} 
-                    className="flex items-center gap-3 text-gray-300 text-sm group cursor-pointer hover:text-primary transition-colors"
+                    className="group cursor-pointer"
                     data-testid={`item-service-${index}`}
                   >
-                    <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-gradient-moving transition-all duration-300 group-hover:scale-110 btn-glow">
-                      <Icon size={14} className="group-hover:rotate-12 transition-transform" />
-                    </div>
-                    <span>{service.name}</span>
+                    <Link to="/services" className="flex items-center gap-3 text-gray-300 hover:text-white transition-all duration-300">
+                      <div className={`relative w-10 h-10 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                        <Icon size={20} className="text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <span className="text-sm font-medium group-hover:translate-x-1 inline-block transition-transform duration-300">{service.name}</span>
+                      </div>
+                      <HiArrowRight size={16} className="opacity-0 group-hover:opacity-100 -ml-4 group-hover:ml-0 transition-all duration-300 text-primary" />
+                    </Link>
                   </li>
                 );
               })}
