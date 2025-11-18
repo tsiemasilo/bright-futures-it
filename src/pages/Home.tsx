@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import heroImage from "@/assets/hero-tech-bg.jpg";
-import heroModern from "@/assets/hero-tech-modern.jpg";
+import heroModern from "@/assets/modern_technology_in_d73fa0d6.jpg";
 import { FaRocket, FaShieldAlt, FaUsers, FaAward, FaCheckCircle, FaLaptopCode, FaLayerGroup, FaChartLine, FaLightbulb, FaHandshake, FaLaptop, FaMobileAlt, FaServer, FaPrint, FaCode, FaLock, FaVideo, FaNetworkWired } from 'react-icons/fa';
 import { HiLightningBolt, HiTrendingUp, HiArrowRight, HiShieldCheck } from 'react-icons/hi';
 import { RiSparklingFill } from 'react-icons/ri';
@@ -178,7 +178,7 @@ const Home = () => {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-lg sm:text-xl lg:text-2xl text-white/80 leading-relaxed max-w-2xl"
               >
-                <span className="font-semibold text-white">EDGAR BRIGHT GROUP</span> delivers cutting-edge technology, 
+                <span className="font-semibold text-white">edight</span> delivers cutting-edge technology, 
                 security, and software solutions to businesses across South Africa and beyond.
               </motion.p>
 

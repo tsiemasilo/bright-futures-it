@@ -18,7 +18,7 @@ const About = () => {
     {
       name: "Mantsie Senyane Bright",
       role: "Co-Founder & Technical Director",
-      description: "Leading technical strategy and innovation at EDGAR BRIGHT GROUP"
+      description: "Leading technical strategy and innovation at edight"
     },
     {
       name: "Edgar Tshwarelo Moloantoa",
@@ -64,7 +64,7 @@ const About = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold">About EDGAR BRIGHT GROUP</h1>
+            <h1 className="text-4xl md:text-5xl font-bold">About edight</h1>
             <p className="text-xl text-muted-foreground">
               A visionary IT solutions company at the intersection of technology, innovation, and empowerment
             </p>
@@ -81,7 +81,7 @@ const About = () => {
                 <h2 className="text-2xl md:text-3xl font-bold mb-6">Who We Are</h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p className="text-lg">
-                    EDGAR BRIGHT GROUP is a visionary IT solutions company based in Pretoria, Gauteng. 
+                    edight is a visionary IT solutions company based in Pretoria, Gauteng. 
                     Founded by Mantsie Senyane Bright and Edgar Tshwarelo Moloantoa, the company operates 
                     at the intersection of technology, innovation, and empowerment.
                   </p>

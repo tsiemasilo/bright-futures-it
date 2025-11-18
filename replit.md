@@ -2,7 +2,7 @@
 
 ## Overview
 
-EDIGHT (EDGAR BRIGHT GROUP PTY) is a corporate website built with React and TypeScript that showcases IT solutions, technology services, and training programs. The application serves as a digital presence for a Pretoria-based technology company offering hardware solutions, software development, security technologies, and professional training programs.
+edight is a corporate website built with React and TypeScript that showcases IT solutions, technology services, and training programs. The application serves as a digital presence for a Pretoria-based technology company offering hardware solutions, software development, security technologies, and professional training programs.
 
 The project is a multi-page React application built with Vite, featuring a modern UI with shadcn/ui components, responsive design with Tailwind CSS, and client-side routing. It's designed to present the company's services, values, and contact information in an elegant, professional manner.
 
