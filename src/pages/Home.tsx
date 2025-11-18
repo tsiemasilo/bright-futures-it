@@ -77,9 +77,9 @@ const Home = () => {
           <img 
             src={heroImage} 
             alt="Technology background" 
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover opacity-60"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/60 to-background/50" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/50 via-background/40 to-background/30" />
           
           {/* Animated background elements */}
           <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
@@ -113,18 +113,18 @@ const Home = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4 animate-bounce-subtle" data-testid="badge-innovation">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-sm rounded-full mb-4 animate-bounce-subtle shadow-lg" data-testid="badge-innovation">
               <RiSparklingFill className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">Innovation in Technology</span>
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">
               Empowering Africa Through
-              <span className="block bg-gradient-hero bg-clip-text text-transparent mt-2">
+              <span className="block bg-gradient-hero bg-clip-text text-transparent mt-2 drop-shadow-lg" style={{filter: 'drop-shadow(0 2px 8px rgba(255,255,255,0.5))'}}>
                 Innovative IT Solutions
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground">
+            <p className="text-lg md:text-xl text-foreground font-medium drop-shadow-md bg-background/30 backdrop-blur-sm rounded-lg p-4">
               EDGAR BRIGHT GROUP delivers cutting-edge technology, security, and software solutions 
               to businesses across South Africa and beyond.
             </p>
