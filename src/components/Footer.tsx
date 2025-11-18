@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { HiMail, HiPhone, HiLocationMarker, HiArrowRight } from 'react-icons/hi';
-import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram, FaServer, FaLock, FaChartLine } from 'react-icons/fa';
-import { HiCode } from 'react-icons/hi';
+import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { Laptop, Terminal, Shield, Briefcase } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const services = [
-    { name: "Hardware Solutions", icon: FaServer, color: "from-blue-500 to-cyan-500" },
-    { name: "Software Development", icon: HiCode, color: "from-purple-500 to-pink-500" },
-    { name: "Security Technologies", icon: FaLock, color: "from-emerald-500 to-teal-500" },
-    { name: "IT Consulting", icon: FaChartLine, color: "from-orange-500 to-amber-500" },
+    { name: "Hardware Solutions", icon: Laptop, color: "from-blue-500 to-cyan-500" },
+    { name: "Software Development", icon: Terminal, color: "from-purple-500 to-pink-500" },
+    { name: "Security Technologies", icon: Shield, color: "from-emerald-500 to-teal-500" },
+    { name: "IT Consulting", icon: Briefcase, color: "from-orange-500 to-amber-500" },
   ];
 
   const socialLinks = [
