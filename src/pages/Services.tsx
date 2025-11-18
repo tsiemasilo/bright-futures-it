@@ -106,20 +106,29 @@ const Services = () => {
         <div className="absolute bottom-10 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
         
         {/* Floating tech icons */}
-        {techIcons.map((Icon, index) => (
-          <div 
-            key={index}
-            className="absolute opacity-5 animate-float"
-            style={{
-              top: `${20 + (index * 15)}%`,
-              left: `${10 + (index * 15)}%`,
-              animationDelay: `${index * 0.5}s`,
-              animationDuration: `${3 + (index * 0.5)}s`
-            }}
-          >
-            <Icon size={48} />
-          </div>
-        ))}
+        {techIcons.map((Icon, index) => {
+          const positions = [
+            { top: '15%', left: '5%' },
+            { top: '30%', right: '8%' },
+            { top: '65%', left: '3%' },
+            { top: '80%', right: '5%' },
+            { top: '50%', left: '2%' },
+            { top: '40%', right: '3%' }
+          ];
+          return (
+            <div 
+              key={index}
+              className="absolute opacity-5 animate-float"
+              style={{
+                ...positions[index],
+                animationDelay: `${index * 0.5}s`,
+                animationDuration: `${3 + (index * 0.5)}s`
+              }}
+            >
+              <Icon size={48} />
+            </div>
+          );
+        })}
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">

@@ -86,20 +86,29 @@ const Home = () => {
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
           
           {/* Floating home icons */}
-          {homeIcons.map((Icon, index) => (
-            <div 
-              key={index}
-              className="absolute opacity-5 animate-float"
-              style={{
-                top: `${20 + (index * 15)}%`,
-                left: `${10 + (index * 15)}%`,
-                animationDelay: `${index * 0.5}s`,
-                animationDuration: `${3 + (index * 0.5)}s`
-              }}
-            >
-              <Icon size={48} />
-            </div>
-          ))}
+          {homeIcons.map((Icon, index) => {
+            const positions = [
+              { top: '10%', left: '5%' },
+              { top: '25%', right: '8%' },
+              { top: '70%', left: '3%' },
+              { top: '85%', right: '5%' },
+              { top: '45%', left: '2%' },
+              { top: '60%', right: '3%' }
+            ];
+            return (
+              <div 
+                key={index}
+                className="absolute opacity-5 animate-float"
+                style={{
+                  ...positions[index],
+                  animationDelay: `${index * 0.5}s`,
+                  animationDuration: `${3 + (index * 0.5)}s`
+                }}
+              >
+                <Icon size={48} />
+              </div>
+            );
+          })}
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
