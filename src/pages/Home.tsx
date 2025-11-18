@@ -112,23 +112,26 @@ const Home = () => {
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-sm rounded-full mb-4 animate-bounce-subtle shadow-lg" data-testid="badge-innovation">
+          <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/95 backdrop-blur-md rounded-full mb-2 shadow-xl border border-primary/20" data-testid="badge-innovation">
               <RiSparklingFill className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Innovation in Technology</span>
+              <span className="text-sm font-semibold text-primary">Innovation in Technology</span>
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight" style={{textShadow: '2px 2px 8px rgba(0,0,0,0.8), -1px -1px 4px rgba(255,255,255,0.3)'}}>
-              Empowering Africa Through
-              <span className="block bg-gradient-hero bg-clip-text text-transparent mt-2" style={{filter: 'drop-shadow(0 2px 12px rgba(255,255,255,0.8)) drop-shadow(0 0 8px rgba(255,255,255,0.6))'}}>
-                Innovative IT Solutions
-              </span>
-            </h1>
-            <p className="text-lg md:text-xl text-foreground font-semibold bg-background/60 backdrop-blur-md rounded-lg p-4 shadow-2xl" style={{textShadow: '1px 1px 4px rgba(0,0,0,0.6)'}}>
-              EDGAR BRIGHT GROUP delivers cutting-edge technology, security, and software solutions 
-              to businesses across South Africa and beyond.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-200">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-foreground">
+                Empowering Africa Through
+                <span className="block bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent mt-3">
+                  Innovative IT Solutions
+                </span>
+              </h1>
+              <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto font-normal">
+                EDGAR BRIGHT GROUP delivers cutting-edge technology, security, and software solutions 
+                to businesses across South Africa and beyond.
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
               <Button asChild size="lg" className="bg-gradient-moving hover:scale-105 shadow-hover group btn-glow transition-all duration-300" data-testid="button-explore-services">
                 <Link to="/services">
                   Explore Services 
