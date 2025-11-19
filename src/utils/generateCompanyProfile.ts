@@ -327,23 +327,46 @@ export const generateCompanyProfilePDF = async () => {
     yPos += splitItem.length * 4 + 4;
   });
 
-  yPos += 8;
+  // Add footer to page 2
+  addPageFooter();
 
-  // Core Services Section
-  doc.setFillColor(243, 244, 246);
-  doc.roundedRect(margin, yPos, pageWidth - (margin * 2), 5, 2, 2, 'F');
+  // ==================== NEW PAGE: CORE SERVICES ====================
+  doc.addPage();
+
+  // Background watermark logo (very light for subtle effect)
+  const watermarkCenterXServices = pageWidth / 2;
+  const watermarkCenterYServices = pageHeight / 2;
+  const scaleServices = 8;
   
-  yPos += 10;
-  doc.setFontSize(18);
-  doc.setTextColor(37, 99, 235);
+  doc.setFillColor(240, 245, 250); // Very light blue
+  
+  // Large watermark logo in center
+  doc.circle(watermarkCenterXServices, watermarkCenterYServices, 3 * scaleServices, 'F');
+  doc.circle(watermarkCenterXServices - 8 * scaleServices, watermarkCenterYServices + 8 * scaleServices, 2.5 * scaleServices, 'F');
+  doc.circle(watermarkCenterXServices + 8 * scaleServices, watermarkCenterYServices + 8 * scaleServices, 2.5 * scaleServices, 'F');
+  doc.circle(watermarkCenterXServices - 8 * scaleServices, watermarkCenterYServices + 20 * scaleServices, 2.5 * scaleServices, 'F');
+  doc.circle(watermarkCenterXServices + 8 * scaleServices, watermarkCenterYServices + 20 * scaleServices, 2.5 * scaleServices, 'F');
+  doc.circle(watermarkCenterXServices, watermarkCenterYServices + 28 * scaleServices, 3 * scaleServices, 'F');
+  
+  doc.setFillColor(245, 240, 250); // Very light purple
+  doc.circle(watermarkCenterXServices - 4 * scaleServices, watermarkCenterYServices + 14 * scaleServices, 3.5 * scaleServices, 'F');
+  doc.circle(watermarkCenterXServices + 4 * scaleServices, watermarkCenterYServices + 14 * scaleServices, 3.5 * scaleServices, 'F');
+
+  // Header background
+  doc.setFillColor(37, 99, 235);
+  doc.rect(0, 0, pageWidth, 25, 'F');
+
+  // Page title
+  doc.setFontSize(24);
+  doc.setTextColor(255, 255, 255);
   try {
     doc.setFont('PlayfairDisplay', 'bold');
   } catch {
     doc.setFont('helvetica', 'bold');
   }
-  doc.text('Our Core Services', margin, yPos);
-  
-  yPos += 10;
+  doc.text('Our Core Services', margin, 17);
+
+  yPos = 40;
 
   const services = [
     {
@@ -389,7 +412,7 @@ export const generateCompanyProfilePDF = async () => {
       } catch {
         doc.setFont('helvetica', 'bold');
       }
-      doc.text('Our Services (Continued)', margin, 17);
+      doc.text('Our Services', margin, 17);
       yPos = 40;
     }
 
@@ -411,10 +434,10 @@ export const generateCompanyProfilePDF = async () => {
     yPos += splitDesc.length * 4 + 6;
   });
 
-  // Add footer to page 2 (or services continued page if it was created)
+  // Add footer to services page (or overflow page if created)
   addPageFooter();
 
-  // ==================== PAGE 3: TEAM & CONTACT ====================
+  // ==================== PAGE 4: TEAM & CONTACT ====================
   doc.addPage();
 
   // Background watermark logo (very light for subtle effect) - ADDED FOR PAGE 3
