@@ -44,28 +44,34 @@ export const generateCompanyProfilePDF = () => {
   doc.circle(centerX - 4, logoY + 14, 3.5, 'F');
   doc.circle(centerX + 4, logoY + 14, 3.5, 'F');
 
-  // Company name
-  doc.setTextColor(255, 255, 255);
+  // Company name - styled like navbar with cyan glow
+  doc.setTextColor(34, 211, 238); // Cyan-400
   doc.setFontSize(48);
   doc.setFont('helvetica', 'bold');
-  doc.text('Edight', centerX, 110, { align: 'center' });
+  doc.text('EDIGHT', centerX, 110, { align: 'center' });
 
-  // Tagline
-  doc.setFontSize(16);
+  // Company Slogan
+  doc.setFontSize(14);
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(200, 200, 200);
-  doc.text('Technology Innovation & IT Solutions', centerX, 125, { align: 'center' });
+  doc.text('THE FUTURE IS RELATED - WE BUILD IT', centerX, 125, { align: 'center' });
 
   // Decorative line
   doc.setDrawColor(37, 99, 235);
   doc.setLineWidth(0.5);
   doc.line(centerX - 40, 135, centerX + 40, 135);
 
+  // Technology tagline below line
+  doc.setFontSize(12);
+  doc.setTextColor(150, 150, 150);
+  doc.setFont('helvetica', 'normal');
+  doc.text('Technology Innovation & IT Solutions', centerX, 143, { align: 'center' });
+
   // Company Profile title
   doc.setFontSize(32);
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
-  doc.text('COMPANY PROFILE', centerX, 160, { align: 'center' });
+  doc.text('COMPANY PROFILE', centerX, 165, { align: 'center' });
 
   // Year
   doc.setFontSize(14);
@@ -87,6 +93,26 @@ export const generateCompanyProfilePDF = () => {
 
   // ==================== PAGE 2: ABOUT & SERVICES ====================
   doc.addPage();
+
+  // Background watermark logo (very light for subtle effect)
+  const watermarkCenterX = pageWidth / 2;
+  const watermarkCenterY = pageHeight / 2;
+  const scale = 8; // Make it bigger
+  
+  // Very light blue watermark
+  doc.setFillColor(240, 245, 250);
+  
+  // Large watermark logo in center
+  doc.circle(watermarkCenterX, watermarkCenterY, 3 * scale, 'F');
+  doc.circle(watermarkCenterX - 8 * scale, watermarkCenterY + 8 * scale, 2.5 * scale, 'F');
+  doc.circle(watermarkCenterX + 8 * scale, watermarkCenterY + 8 * scale, 2.5 * scale, 'F');
+  doc.circle(watermarkCenterX - 8 * scale, watermarkCenterY + 20 * scale, 2.5 * scale, 'F');
+  doc.circle(watermarkCenterX + 8 * scale, watermarkCenterY + 20 * scale, 2.5 * scale, 'F');
+  doc.circle(watermarkCenterX, watermarkCenterY + 28 * scale, 3 * scale, 'F');
+  
+  doc.setFillColor(245, 240, 250); // Very light purple
+  doc.circle(watermarkCenterX - 4 * scale, watermarkCenterY + 14 * scale, 3.5 * scale, 'F');
+  doc.circle(watermarkCenterX + 4 * scale, watermarkCenterY + 14 * scale, 3.5 * scale, 'F');
 
   // Header background
   doc.setFillColor(37, 99, 235);
@@ -110,10 +136,10 @@ export const generateCompanyProfilePDF = () => {
   doc.setFontSize(10);
   doc.setTextColor(60, 60, 60);
   doc.setFont('helvetica', 'normal');
-  const overviewText = 'Edight is a visionary IT solutions company based in Pretoria, Gauteng. Founded by Mantsie Senyane Bright and Edgar Tshwarelo Moloantoa, the company operates at the intersection of technology, innovation, and empowerment. We specialize in delivering cutting-edge solutions that transform businesses and empower communities across South Africa and beyond. With over 3 years of industry experience, we have successfully delivered innovative technology solutions to diverse clients, ranging from small businesses to large enterprises.';
+  const overviewText = 'Edight is a visionary IT solutions company based in Pretoria, Gauteng, South Africa. Founded by Mantsie Senyane Bright and Edgar Tshwarelo Moloantoa, the company operates at the intersection of technology, innovation, and empowerment, positioning itself as a catalyst for digital transformation across the African continent. We specialize in delivering cutting-edge, comprehensive technology solutions that transform businesses, enhance operational efficiency, and empower communities through sustainable growth and skills development. With over 3 years of dedicated industry experience, we have successfully delivered innovative, tailored technology solutions to a diverse portfolio of clients, ranging from emerging small businesses and startups to well-established large enterprises across multiple sectors. Our commitment to excellence, customer satisfaction, and continuous innovation drives everything we do, ensuring that every solution we deliver not only meets but exceeds our clients\' expectations while contributing to the broader goal of technological advancement in South Africa and beyond.';
   const splitOverview = doc.splitTextToSize(overviewText, pageWidth - (margin * 2));
   doc.text(splitOverview, margin, yPos);
-  yPos += splitOverview.length * 5 + 8;
+  yPos += splitOverview.length * 5 + 10;
 
   // Company Statistics
   doc.setFillColor(243, 244, 246);
@@ -141,7 +167,7 @@ export const generateCompanyProfilePDF = () => {
   doc.text('Completed', statX2, yPos);
   doc.text('Available', statX3, yPos);
   
-  yPos += 10;
+  yPos += 18;
 
   // Mission & Vision
   doc.setFontSize(14);
@@ -279,6 +305,21 @@ export const generateCompanyProfilePDF = () => {
 
   // ==================== PAGE 3: TEAM & CONTACT ====================
   doc.addPage();
+
+  // Background watermark logo (very light for subtle effect)
+  doc.setFillColor(240, 245, 250); // Very light blue
+  
+  // Large watermark logo in center
+  doc.circle(watermarkCenterX, watermarkCenterY, 3 * scale, 'F');
+  doc.circle(watermarkCenterX - 8 * scale, watermarkCenterY + 8 * scale, 2.5 * scale, 'F');
+  doc.circle(watermarkCenterX + 8 * scale, watermarkCenterY + 8 * scale, 2.5 * scale, 'F');
+  doc.circle(watermarkCenterX - 8 * scale, watermarkCenterY + 20 * scale, 2.5 * scale, 'F');
+  doc.circle(watermarkCenterX + 8 * scale, watermarkCenterY + 20 * scale, 2.5 * scale, 'F');
+  doc.circle(watermarkCenterX, watermarkCenterY + 28 * scale, 3 * scale, 'F');
+  
+  doc.setFillColor(245, 240, 250); // Very light purple
+  doc.circle(watermarkCenterX - 4 * scale, watermarkCenterY + 14 * scale, 3.5 * scale, 'F');
+  doc.circle(watermarkCenterX + 4 * scale, watermarkCenterY + 14 * scale, 3.5 * scale, 'F');
 
   // Header background
   doc.setFillColor(37, 99, 235);
