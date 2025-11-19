@@ -45,12 +45,19 @@ const Navigation = () => {
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <NavLink to="/" className="flex items-center group">
+          <NavLink to="/" className="flex items-center gap-3 group">
             <img 
               src={edightLogo} 
               alt="Edight Logo" 
               className="h-12 md:h-16 w-auto object-contain transform group-hover:scale-105 transition-transform duration-300"
             />
+            <span className={`text-2xl md:text-3xl font-bold transition-colors duration-300 ${
+              isTransparent
+                ? "text-white group-hover:text-cyan-400"
+                : "text-foreground group-hover:text-primary"
+            }`}>
+              Edight
+            </span>
           </NavLink>
 
           {/* Desktop Navigation */}
