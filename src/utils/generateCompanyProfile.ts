@@ -1,12 +1,31 @@
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
-export const generateCompanyProfilePDF = () => {
+export const generateCompanyProfilePDF = async () => {
   const doc = new jsPDF({
     orientation: 'portrait',
     unit: 'mm',
     format: 'a4'
   });
+
+  // Load and add Orbitron font
+  try {
+    const fontResponse = await fetch('/fonts/Orbitron-Bold.ttf');
+    const fontBlob = await fontResponse.blob();
+    const reader = new FileReader();
+    
+    await new Promise((resolve) => {
+      reader.onload = function() {
+        const base64Font = (reader.result as string).split(',')[1];
+        doc.addFileToVFS('Orbitron-Bold.ttf', base64Font);
+        doc.addFont('Orbitron-Bold.ttf', 'Orbitron', 'bold');
+        resolve(null);
+      };
+      reader.readAsDataURL(fontBlob);
+    });
+  } catch (error) {
+    console.warn('Could not load Orbitron font, using default font', error);
+  }
 
   const primaryColor = '#2563eb'; // Brand blue
   const accentColor = '#6B46C1'; // Purple accent
@@ -44,10 +63,14 @@ export const generateCompanyProfilePDF = () => {
   doc.circle(centerX - 4, logoY + 14, 3.5, 'F');
   doc.circle(centerX + 4, logoY + 14, 3.5, 'F');
 
-  // Company name - styled like navbar with cyan glow
+  // Company name - styled like navbar with cyan glow using Orbitron font
   doc.setTextColor(34, 211, 238); // Cyan-400
   doc.setFontSize(48);
-  doc.setFont('helvetica', 'bold');
+  try {
+    doc.setFont('Orbitron', 'bold');
+  } catch {
+    doc.setFont('helvetica', 'bold');
+  }
   doc.text('EDIGHT', centerX, 110, { align: 'center' });
 
   // Company Slogan

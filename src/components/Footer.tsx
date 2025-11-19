@@ -10,7 +10,7 @@ import { BrandName } from "@/components/BrandName";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
-  const handleCompanyProfileDownload = () => {
+  const handleCompanyProfileDownload = async () => {
     const password = window.prompt('Please enter the password to download the company profile:');
     
     if (password === null) {
@@ -19,7 +19,7 @@ const Footer = () => {
     }
     
     if (password === '0852T') {
-      generateCompanyProfilePDF();
+      await generateCompanyProfilePDF();
     } else {
       alert('Incorrect password. Access denied.');
     }
