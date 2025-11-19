@@ -123,7 +123,7 @@ const Training = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p className="text-lg">
-                  Recognizing South Africa's high youth unemployment rate, <BrandName inline size="sm" /> is 
+                  Recognizing South Africa's high youth unemployment rate, <BrandName inline size="xs" /> is 
                   committed to developing the next generation of IT professionals through comprehensive 
                   in-service training and internship programs.
                 </p>
@@ -217,7 +217,7 @@ const Training = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Train With Us?</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              The advantages of choosing <BrandName inline size="sm" /> for your IT career development
+              The advantages of choosing <BrandName inline size="xs" /> for your IT career development
             </p>
           </div>
 

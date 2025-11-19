@@ -21,7 +21,7 @@ const About = () => {
       role: "Co-Founder & Technical Director",
       description: (
         <>
-          Leading technical strategy and innovation at <BrandName inline size="sm" />
+          Leading technical strategy and innovation at <BrandName inline size="xs" />
         </>
       )
     },
@@ -86,7 +86,7 @@ const About = () => {
                 <h2 className="text-2xl md:text-3xl font-bold mb-6">Who We Are</h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p className="text-lg">
-                    <BrandName inline size="md" /> is a visionary IT solutions company based in Pretoria, Gauteng. 
+                    <BrandName inline size="xs" /> is a visionary IT solutions company based in Pretoria, Gauteng. 
                     Founded by Mantsie Senyane Bright and Edgar Tshwarelo Moloantoa, the company operates 
                     at the intersection of technology, innovation, and empowerment.
                   </p>

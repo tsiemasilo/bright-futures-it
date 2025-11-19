@@ -179,7 +179,7 @@ const Home = () => {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-lg sm:text-xl lg:text-2xl text-white/80 leading-relaxed max-w-2xl"
               >
-                <BrandName inline variant="gradient" size="md" /> delivers cutting-edge technology, 
+                <BrandName inline variant="gradient" size="xs" /> delivers cutting-edge technology, 
                 security, and software solutions to businesses across South Africa and beyond.
               </motion.p>
 
@@ -441,7 +441,7 @@ const Home = () => {
               </h2>
               <p className="text-muted-foreground text-lg">
                 Founded by visionaries Mantsie Senyane Bright and Edgar Tshwarelo Moloantoa, 
-                <BrandName inline size="sm" /> stands at the intersection of technology, innovation, and empowerment.
+                <BrandName inline size="xs" /> stands at the intersection of technology, innovation, and empowerment.
               </p>
               <p className="text-muted-foreground">
                 Our mission extends beyond providing excellent IT services—we're committed to 
