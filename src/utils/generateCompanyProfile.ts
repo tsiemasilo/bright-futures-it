@@ -51,9 +51,11 @@ export const generateCompanyProfilePDF = async () => {
   const pageWidth = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
   const margin = 20;
+  
+  let currentPageNumber = 1;
 
   // Helper function to add footer to each page
-  const addPageFooter = () => {
+  const addPageFooter = (pageNumber: number) => {
     const footerY = pageHeight - 12;
     const logoSize = 1.5;
     const logoX = margin;
@@ -77,10 +79,16 @@ export const generateCompanyProfilePDF = async () => {
     }
     doc.text('EDIGHT', logoX + logoSize * 2 + 5, footerY + 1);
     
-    // Founders names
+    // Page number in center
     doc.setFont('helvetica', 'normal');
-    doc.setFontSize(7);
+    doc.setFontSize(8);
     doc.setTextColor(100, 100, 100);
+    const pageText = `${pageNumber}`;
+    const pageTextWidth = doc.getTextWidth(pageText);
+    doc.text(pageText, (pageWidth - pageTextWidth) / 2, footerY + 1);
+    
+    // Founders names
+    doc.setFontSize(7);
     const footerText = 'Mantsie Senyane Bright | Edgar Tshwarelo Moloantoa';
     const footerTextWidth = doc.getTextWidth(footerText);
     doc.text(footerText, pageWidth - margin - footerTextWidth, footerY + 1);
@@ -169,10 +177,11 @@ export const generateCompanyProfilePDF = async () => {
   doc.text('Phone: 071 157 8316 | 072 447 6949', centerX, bottomY + 28, { align: 'center' });
 
   // Add footer to page 1
-  addPageFooter();
+  addPageFooter(currentPageNumber);
 
   // ==================== PAGE 2: ABOUT & SERVICES ====================
   doc.addPage();
+  currentPageNumber++;
 
   // Background watermark logo (very light for subtle effect)
   const watermarkCenterX = pageWidth / 2;
@@ -328,10 +337,11 @@ export const generateCompanyProfilePDF = async () => {
   });
 
   // Add footer to page 2
-  addPageFooter();
+  addPageFooter(currentPageNumber);
 
   // ==================== NEW PAGE: CORE SERVICES ====================
   doc.addPage();
+  currentPageNumber++;
 
   // Background watermark logo (very light for subtle effect)
   const watermarkCenterXServices = pageWidth / 2;
@@ -371,37 +381,41 @@ export const generateCompanyProfilePDF = async () => {
   const services = [
     {
       title: 'Hardware Solutions',
-      desc: 'Complete hardware infrastructure, procurement, installation, and maintenance services including servers, workstations, networking equipment, and peripherals.'
+      desc: 'Complete hardware infrastructure, procurement, installation, and maintenance services including enterprise-grade servers, high-performance workstations, networking equipment, peripherals, and data center solutions. We provide end-to-end hardware lifecycle management from initial assessment and specification through procurement, professional installation, configuration, ongoing maintenance, upgrades, and secure disposal. Our hardware solutions are designed to maximize performance, reliability, and scalability while optimizing your technology investment and minimizing downtime.'
     },
     {
       title: 'Software Development',
-      desc: 'Custom software solutions, web and mobile applications, enterprise systems, and digital platforms tailored to your business needs.'
+      desc: 'Custom software solutions, web and mobile applications, enterprise systems, and digital platforms tailored to your specific business needs and objectives. Our experienced development team specializes in creating scalable, secure, and user-friendly applications using the latest technologies and industry best practices. From initial concept and requirements analysis through design, development, testing, deployment, and ongoing support, we deliver innovative solutions that streamline operations, enhance productivity, improve customer engagement, and drive business growth across all platforms and devices.'
     },
     {
       title: 'Security Technologies',
-      desc: 'Comprehensive security solutions including surveillance systems, access control, cybersecurity, network security, and risk management.'
+      desc: 'Comprehensive security solutions including advanced surveillance systems, access control, biometric authentication, cybersecurity infrastructure, network security, penetration testing, vulnerability assessments, and enterprise risk management. We implement multi-layered security strategies that protect your physical assets, digital infrastructure, sensitive data, and intellectual property from evolving threats. Our security services encompass security audits, compliance management, incident response planning, security awareness training, and 24/7 monitoring to ensure complete protection of your business assets and maintain regulatory compliance.'
     },
     {
       title: 'IT Consulting & Support',
-      desc: 'Expert IT consulting, strategic planning, system optimization, 24/7 technical support, and ongoing maintenance services.'
+      desc: 'Expert IT consulting, strategic technology planning, digital transformation roadmaps, system optimization, performance tuning, 24/7 technical support, and comprehensive ongoing maintenance services. Our certified consultants work closely with your team to understand your business objectives, assess your current IT infrastructure, identify opportunities for improvement, and develop tailored strategies that align technology investments with business goals. We provide hands-on implementation support, change management, user training, helpdesk services, and proactive monitoring to ensure optimal system performance and user satisfaction.'
     },
     {
       title: 'Networking Solutions',
-      desc: 'Network design, implementation, wireless solutions, VPN setup, network monitoring, and infrastructure optimization.'
+      desc: 'Enterprise network design, implementation, wireless solutions, VPN setup, SD-WAN deployment, network monitoring, infrastructure optimization, and performance management. We create robust, high-performance network architectures that support your business operations with reliability, security, and scalability. Our networking services include site surveys, network planning, equipment installation, configuration management, bandwidth optimization, load balancing, redundancy planning, network security implementation, traffic analysis, troubleshooting, and continuous performance monitoring to ensure seamless connectivity across all locations.'
     },
     {
       title: 'Cloud Solutions',
-      desc: 'Cloud migration, hosting services, backup and disaster recovery, cloud infrastructure management, and SaaS solutions.'
+      desc: 'Cloud migration strategy and execution, cloud hosting services, hybrid cloud architecture, backup and disaster recovery solutions, cloud infrastructure management, and Software-as-a-Service (SaaS) implementations. We help businesses leverage the power of cloud computing to reduce costs, increase flexibility, improve collaboration, and enhance business continuity. Our cloud services include cloud readiness assessments, migration planning, data transfer, application modernization, cloud security, cost optimization, performance monitoring, and ongoing management to ensure your cloud infrastructure delivers maximum value and reliability.'
     },
     {
       title: 'ICT Training & Development',
-      desc: 'Professional training programs, certification courses, skills development, and technology workshops for individuals and organizations.'
+      desc: 'Professional training programs, industry-recognized certification courses, customized skills development, hands-on technology workshops, and comprehensive learning solutions for individuals and organizations. We offer training in various IT disciplines including software development, networking, cybersecurity, cloud computing, project management, and emerging technologies. Our training approach combines theoretical knowledge with practical, real-world applications through interactive sessions, lab exercises, case studies, and ongoing mentorship to ensure participants gain valuable skills that enhance career prospects and organizational capabilities.'
     }
   ];
 
   services.forEach((service, index) => {
     if (yPos > pageHeight - 40) {
+      // Add footer to previous page before creating new one
+      addPageFooter(currentPageNumber);
+      
       doc.addPage();
+      currentPageNumber++;
       // Add header to new page
       doc.setFillColor(37, 99, 235);
       doc.rect(0, 0, pageWidth, 25, 'F');
@@ -435,10 +449,11 @@ export const generateCompanyProfilePDF = async () => {
   });
 
   // Add footer to services page (or overflow page if created)
-  addPageFooter();
+  addPageFooter(currentPageNumber);
 
   // ==================== PAGE 4: TEAM & CONTACT ====================
   doc.addPage();
+  currentPageNumber++;
 
   // Background watermark logo (very light for subtle effect) - ADDED FOR PAGE 3
   const watermarkCenterX3 = pageWidth / 2;
@@ -670,8 +685,8 @@ export const generateCompanyProfilePDF = async () => {
   doc.setFont('helvetica', 'normal');
   doc.text('Contact us today to discuss your IT solutions needs.', centerX, yPos, { align: 'center' });
 
-  // Add footer to page 3
-  addPageFooter();
+  // Add footer to final page
+  addPageFooter(currentPageNumber);
 
   // Save the PDF
   doc.save('EDIGHT_Company_Profile.pdf');
