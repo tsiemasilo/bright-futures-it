@@ -8,23 +8,39 @@ export const generateCompanyProfilePDF = async () => {
     format: 'a4'
   });
 
-  // Load and add Orbitron font
+  // Load and add custom fonts
   try {
-    const fontResponse = await fetch('/fonts/Orbitron-Bold.ttf');
-    const fontBlob = await fontResponse.blob();
-    const reader = new FileReader();
+    // Load Orbitron font for brand name
+    const orbitronResponse = await fetch('/fonts/Orbitron-Bold.ttf');
+    const orbitronBlob = await orbitronResponse.blob();
+    const orbitronReader = new FileReader();
     
     await new Promise((resolve) => {
-      reader.onload = function() {
-        const base64Font = (reader.result as string).split(',')[1];
+      orbitronReader.onload = function() {
+        const base64Font = (orbitronReader.result as string).split(',')[1];
         doc.addFileToVFS('Orbitron-Bold.ttf', base64Font);
         doc.addFont('Orbitron-Bold.ttf', 'Orbitron', 'bold');
         resolve(null);
       };
-      reader.readAsDataURL(fontBlob);
+      orbitronReader.readAsDataURL(orbitronBlob);
+    });
+
+    // Load Playfair Display font for headings
+    const playfairResponse = await fetch('/fonts/PlayfairDisplay-Bold.ttf');
+    const playfairBlob = await playfairResponse.blob();
+    const playfairReader = new FileReader();
+    
+    await new Promise((resolve) => {
+      playfairReader.onload = function() {
+        const base64Font = (playfairReader.result as string).split(',')[1];
+        doc.addFileToVFS('PlayfairDisplay-Bold.ttf', base64Font);
+        doc.addFont('PlayfairDisplay-Bold.ttf', 'PlayfairDisplay', 'bold');
+        resolve(null);
+      };
+      playfairReader.readAsDataURL(playfairBlob);
     });
   } catch (error) {
-    console.warn('Could not load Orbitron font, using default font', error);
+    console.warn('Could not load custom fonts, using default fonts', error);
   }
 
   const primaryColor = '#2563eb'; // Brand blue
@@ -93,7 +109,11 @@ export const generateCompanyProfilePDF = async () => {
   // Company Profile title
   doc.setFontSize(32);
   doc.setTextColor(255, 255, 255);
-  doc.setFont('helvetica', 'bold');
+  try {
+    doc.setFont('PlayfairDisplay', 'bold');
+  } catch {
+    doc.setFont('helvetica', 'bold');
+  }
   doc.text('COMPANY PROFILE', centerX, 165, { align: 'center' });
 
   // Year
@@ -144,7 +164,11 @@ export const generateCompanyProfilePDF = async () => {
   // Page title
   doc.setFontSize(20);
   doc.setTextColor(255, 255, 255);
-  doc.setFont('helvetica', 'bold');
+  try {
+    doc.setFont('PlayfairDisplay', 'bold');
+  } catch {
+    doc.setFont('helvetica', 'bold');
+  }
   doc.text('About EDIGHT', margin, 17);
 
   let yPos = 40;
@@ -152,7 +176,11 @@ export const generateCompanyProfilePDF = async () => {
   // Company Overview
   doc.setFontSize(14);
   doc.setTextColor(37, 99, 235);
-  doc.setFont('helvetica', 'bold');
+  try {
+    doc.setFont('PlayfairDisplay', 'bold');
+  } catch {
+    doc.setFont('helvetica', 'bold');
+  }
   doc.text('Company Overview', margin, yPos);
   
   yPos += 8;
@@ -195,7 +223,11 @@ export const generateCompanyProfilePDF = async () => {
   // Mission & Vision
   doc.setFontSize(14);
   doc.setTextColor(37, 99, 235);
-  doc.setFont('helvetica', 'bold');
+  try {
+    doc.setFont('PlayfairDisplay', 'bold');
+  } catch {
+    doc.setFont('helvetica', 'bold');
+  }
   doc.text('Our Mission', margin, yPos);
   
   yPos += 8;
@@ -210,7 +242,11 @@ export const generateCompanyProfilePDF = async () => {
   // Vision
   doc.setFontSize(14);
   doc.setTextColor(37, 99, 235);
-  doc.setFont('helvetica', 'bold');
+  try {
+    doc.setFont('PlayfairDisplay', 'bold');
+  } catch {
+    doc.setFont('helvetica', 'bold');
+  }
   doc.text('Our Vision', margin, yPos);
   
   yPos += 8;
@@ -225,7 +261,11 @@ export const generateCompanyProfilePDF = async () => {
   // Why Choose EDIGHT
   doc.setFontSize(14);
   doc.setTextColor(37, 99, 235);
-  doc.setFont('helvetica', 'bold');
+  try {
+    doc.setFont('PlayfairDisplay', 'bold');
+  } catch {
+    doc.setFont('helvetica', 'bold');
+  }
   doc.text('Why Choose EDIGHT', margin, yPos);
   
   yPos += 8;
@@ -259,7 +299,11 @@ export const generateCompanyProfilePDF = async () => {
   yPos += 10;
   doc.setFontSize(16);
   doc.setTextColor(37, 99, 235);
-  doc.setFont('helvetica', 'bold');
+  try {
+    doc.setFont('PlayfairDisplay', 'bold');
+  } catch {
+    doc.setFont('helvetica', 'bold');
+  }
   doc.text('Our Core Services', margin, yPos);
   
   yPos += 10;
@@ -303,7 +347,11 @@ export const generateCompanyProfilePDF = async () => {
       doc.rect(0, 0, pageWidth, 25, 'F');
       doc.setFontSize(20);
       doc.setTextColor(255, 255, 255);
-      doc.setFont('helvetica', 'bold');
+      try {
+        doc.setFont('PlayfairDisplay', 'bold');
+      } catch {
+        doc.setFont('helvetica', 'bold');
+      }
       doc.text('Our Services (Continued)', margin, 17);
       yPos = 40;
     }
@@ -329,20 +377,24 @@ export const generateCompanyProfilePDF = async () => {
   // ==================== PAGE 3: TEAM & CONTACT ====================
   doc.addPage();
 
-  // Background watermark logo (very light for subtle effect)
+  // Background watermark logo (very light for subtle effect) - ADDED FOR PAGE 3
+  const watermarkCenterX3 = pageWidth / 2;
+  const watermarkCenterY3 = pageHeight / 2;
+  const scale3 = 8; // Make it bigger
+  
   doc.setFillColor(240, 245, 250); // Very light blue
   
   // Large watermark logo in center
-  doc.circle(watermarkCenterX, watermarkCenterY, 3 * scale, 'F');
-  doc.circle(watermarkCenterX - 8 * scale, watermarkCenterY + 8 * scale, 2.5 * scale, 'F');
-  doc.circle(watermarkCenterX + 8 * scale, watermarkCenterY + 8 * scale, 2.5 * scale, 'F');
-  doc.circle(watermarkCenterX - 8 * scale, watermarkCenterY + 20 * scale, 2.5 * scale, 'F');
-  doc.circle(watermarkCenterX + 8 * scale, watermarkCenterY + 20 * scale, 2.5 * scale, 'F');
-  doc.circle(watermarkCenterX, watermarkCenterY + 28 * scale, 3 * scale, 'F');
+  doc.circle(watermarkCenterX3, watermarkCenterY3, 3 * scale3, 'F');
+  doc.circle(watermarkCenterX3 - 8 * scale3, watermarkCenterY3 + 8 * scale3, 2.5 * scale3, 'F');
+  doc.circle(watermarkCenterX3 + 8 * scale3, watermarkCenterY3 + 8 * scale3, 2.5 * scale3, 'F');
+  doc.circle(watermarkCenterX3 - 8 * scale3, watermarkCenterY3 + 20 * scale3, 2.5 * scale3, 'F');
+  doc.circle(watermarkCenterX3 + 8 * scale3, watermarkCenterY3 + 20 * scale3, 2.5 * scale3, 'F');
+  doc.circle(watermarkCenterX3, watermarkCenterY3 + 28 * scale3, 3 * scale3, 'F');
   
   doc.setFillColor(245, 240, 250); // Very light purple
-  doc.circle(watermarkCenterX - 4 * scale, watermarkCenterY + 14 * scale, 3.5 * scale, 'F');
-  doc.circle(watermarkCenterX + 4 * scale, watermarkCenterY + 14 * scale, 3.5 * scale, 'F');
+  doc.circle(watermarkCenterX3 - 4 * scale3, watermarkCenterY3 + 14 * scale3, 3.5 * scale3, 'F');
+  doc.circle(watermarkCenterX3 + 4 * scale3, watermarkCenterY3 + 14 * scale3, 3.5 * scale3, 'F');
 
   // Header background
   doc.setFillColor(37, 99, 235);
@@ -351,7 +403,11 @@ export const generateCompanyProfilePDF = async () => {
   // Page title
   doc.setFontSize(20);
   doc.setTextColor(255, 255, 255);
-  doc.setFont('helvetica', 'bold');
+  try {
+    doc.setFont('PlayfairDisplay', 'bold');
+  } catch {
+    doc.setFont('helvetica', 'bold');
+  }
   doc.text('Our Leadership Team', margin, 17);
 
   yPos = 40;
@@ -359,7 +415,11 @@ export const generateCompanyProfilePDF = async () => {
   // Founders Section
   doc.setFontSize(14);
   doc.setTextColor(37, 99, 235);
-  doc.setFont('helvetica', 'bold');
+  try {
+    doc.setFont('PlayfairDisplay', 'bold');
+  } catch {
+    doc.setFont('helvetica', 'bold');
+  }
   doc.text('Meet Our Founders', margin, yPos);
   
   yPos += 10;
@@ -419,7 +479,11 @@ export const generateCompanyProfilePDF = async () => {
   yPos += 5;
   doc.setFontSize(14);
   doc.setTextColor(37, 99, 235);
-  doc.setFont('helvetica', 'bold');
+  try {
+    doc.setFont('PlayfairDisplay', 'bold');
+  } catch {
+    doc.setFont('helvetica', 'bold');
+  }
   doc.text('Our Core Values', margin, yPos);
   
   yPos += 8;
@@ -447,7 +511,11 @@ export const generateCompanyProfilePDF = async () => {
   yPos += 6;
   doc.setFontSize(14);
   doc.setTextColor(37, 99, 235);
-  doc.setFont('helvetica', 'bold');
+  try {
+    doc.setFont('PlayfairDisplay', 'bold');
+  } catch {
+    doc.setFont('helvetica', 'bold');
+  }
   doc.text('Industry Expertise', margin, yPos);
   
   yPos += 8;
@@ -488,7 +556,11 @@ export const generateCompanyProfilePDF = async () => {
   yPos += 10;
   doc.setFontSize(16);
   doc.setTextColor(255, 255, 255);
-  doc.setFont('helvetica', 'bold');
+  try {
+    doc.setFont('PlayfairDisplay', 'bold');
+  } catch {
+    doc.setFont('helvetica', 'bold');
+  }
   doc.text('Get In Touch', margin + 10, yPos);
 
   yPos += 10;
