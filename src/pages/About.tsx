@@ -180,8 +180,8 @@ const About = () => {
                     {founder.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-1">{founder.name}</h3>
-                    <p className="text-primary font-medium mb-3">{founder.role}</p>
+                    <h3 className="text-xl font-bold mb-1 text-cyan-400">{founder.name}</h3>
+                    <p className="text-cyan-300 font-medium mb-3">{founder.role}</p>
                     <p className="text-gray-300 text-sm">{founder.description}</p>
                   </div>
                 </CardContent>
