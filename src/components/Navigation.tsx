@@ -51,7 +51,7 @@ const Navigation = () => {
               alt="Edight Logo" 
               className="h-12 md:h-16 w-auto object-contain transform group-hover:scale-105 transition-transform duration-300"
             />
-            <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent group-hover:from-cyan-300 group-hover:via-blue-400 group-hover:to-purple-500 transition-all duration-300 tracking-wide">
+            <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent group-hover:from-cyan-300 group-hover:via-blue-400 group-hover:to-purple-500 transition-all duration-300 tracking-wide uppercase">
               Edight
             </span>
           </NavLink>
