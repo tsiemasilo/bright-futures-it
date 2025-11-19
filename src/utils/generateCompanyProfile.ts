@@ -110,10 +110,38 @@ export const generateCompanyProfilePDF = () => {
   doc.setFontSize(10);
   doc.setTextColor(60, 60, 60);
   doc.setFont('helvetica', 'normal');
-  const overviewText = 'Edight is a visionary IT solutions company based in Pretoria, Gauteng. Founded by Mantsie Senyane Bright and Edgar Tshwarelo Moloantoa, the company operates at the intersection of technology, innovation, and empowerment. We specialize in delivering cutting-edge solutions that transform businesses and empower communities across South Africa and beyond.';
+  const overviewText = 'Edight is a visionary IT solutions company based in Pretoria, Gauteng. Founded by Mantsie Senyane Bright and Edgar Tshwarelo Moloantoa, the company operates at the intersection of technology, innovation, and empowerment. We specialize in delivering cutting-edge solutions that transform businesses and empower communities across South Africa and beyond. With over 3 years of industry experience, we have successfully delivered innovative technology solutions to diverse clients, ranging from small businesses to large enterprises.';
   const splitOverview = doc.splitTextToSize(overviewText, pageWidth - (margin * 2));
   doc.text(splitOverview, margin, yPos);
-  yPos += splitOverview.length * 5 + 10;
+  yPos += splitOverview.length * 5 + 8;
+
+  // Company Statistics
+  doc.setFillColor(243, 244, 246);
+  doc.roundedRect(margin, yPos, pageWidth - (margin * 2), 20, 2, 2, 'F');
+  
+  yPos += 7;
+  doc.setFontSize(9);
+  doc.setTextColor(37, 99, 235);
+  doc.setFont('helvetica', 'bold');
+  
+  const statX1 = margin + 10;
+  const statX2 = centerX - 15;
+  const statX3 = centerX + 30;
+  
+  doc.text('3+ Years', statX1, yPos);
+  doc.text('4 Projects', statX2, yPos);
+  doc.text('24/7 Support', statX3, yPos);
+  
+  yPos += 4;
+  doc.setFontSize(8);
+  doc.setTextColor(80, 80, 80);
+  doc.setFont('helvetica', 'normal');
+  
+  doc.text('Experience', statX1, yPos);
+  doc.text('Completed', statX2, yPos);
+  doc.text('Available', statX3, yPos);
+  
+  yPos += 10;
 
   // Mission & Vision
   doc.setFontSize(14);
@@ -143,7 +171,37 @@ export const generateCompanyProfilePDF = () => {
   const visionText = 'To become Africa\'s leading technology solutions provider, recognized for excellence in innovation, security, and customer service while creating meaningful impact through skills development and digital transformation.';
   const splitVision = doc.splitTextToSize(visionText, pageWidth - (margin * 2));
   doc.text(splitVision, margin, yPos);
-  yPos += splitVision.length * 5 + 12;
+  yPos += splitVision.length * 5 + 10;
+
+  // Why Choose Edight
+  doc.setFontSize(14);
+  doc.setTextColor(37, 99, 235);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Why Choose Edight', margin, yPos);
+  
+  yPos += 8;
+
+  const whyChoose = [
+    'Customized Solutions: Tailored IT solutions designed to meet your specific business needs',
+    'Expert Team: Highly skilled professionals with extensive industry experience',
+    'Quality Assurance: Rigorous testing and quality control for all deliverables',
+    'Competitive Pricing: Cost-effective solutions without compromising on quality',
+    'Ongoing Support: Comprehensive maintenance and 24/7 technical support'
+  ];
+
+  doc.setFontSize(9);
+  doc.setTextColor(60, 60, 60);
+  doc.setFont('helvetica', 'normal');
+  
+  whyChoose.forEach(item => {
+    doc.setFillColor(37, 99, 235);
+    doc.circle(margin + 2, yPos - 1.5, 1.2, 'F');
+    const splitItem = doc.splitTextToSize(item, pageWidth - (margin * 2) - 6);
+    doc.text(splitItem, margin + 6, yPos);
+    yPos += splitItem.length * 4 + 4;
+  });
+
+  yPos += 8;
 
   // Core Services Section
   doc.setFillColor(243, 244, 246);
@@ -320,6 +378,43 @@ export const generateCompanyProfilePDF = () => {
     doc.text(value, margin + 6, yPos);
     yPos += 6;
   });
+
+  // Industry Expertise
+  yPos += 6;
+  doc.setFontSize(14);
+  doc.setTextColor(37, 99, 235);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Industry Expertise', margin, yPos);
+  
+  yPos += 8;
+
+  const industries = [
+    'Education & Training',
+    'Healthcare & Medical',
+    'Retail & E-commerce',
+    'Financial Services',
+    'Government & Public Sector',
+    'Manufacturing & Logistics'
+  ];
+
+  doc.setFontSize(9);
+  doc.setTextColor(60, 60, 60);
+  doc.setFont('helvetica', 'normal');
+  
+  const col1X = margin + 6;
+  const col2X = centerX + 6;
+  let currentY = yPos;
+  
+  industries.forEach((industry, index) => {
+    const xPos = index % 2 === 0 ? col1X : col2X;
+    if (index % 2 === 0 && index > 0) currentY += 5;
+    
+    doc.setFillColor(37, 99, 235);
+    doc.circle(xPos - 4, currentY - 1.5, 1.2, 'F');
+    doc.text(industry, xPos, currentY);
+  });
+  
+  yPos = currentY + 8;
 
   // Contact Information Section
   yPos += 8;
