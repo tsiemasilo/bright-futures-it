@@ -51,8 +51,8 @@ const Navigation = () => {
               alt="Edight Logo" 
               className="h-12 md:h-16 w-auto object-contain transform group-hover:scale-105 transition-transform duration-300"
             />
-            <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent group-hover:from-cyan-300 group-hover:via-blue-400 group-hover:to-purple-500 transition-all duration-300 tracking-wide uppercase">
-              Edight
+            <span className="text-2xl md:text-3xl font-extrabold text-cyan-400 uppercase tracking-wider transition-all duration-300 group-hover:text-cyan-300 group-hover:scale-105" style={{ textShadow: '0 0 20px rgba(34, 211, 238, 0.5), 0 0 40px rgba(34, 211, 238, 0.3)' }}>
+              EDIGHT
             </span>
           </NavLink>
 
