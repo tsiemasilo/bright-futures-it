@@ -9,6 +9,21 @@ import { generateCompanyProfilePDF } from '@/utils/generateCompanyProfile';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
+  const handleCompanyProfileDownload = () => {
+    const password = window.prompt('Please enter the password to download the company profile:');
+    
+    if (password === null) {
+      // User cancelled
+      return;
+    }
+    
+    if (password === '0852T') {
+      generateCompanyProfilePDF();
+    } else {
+      alert('Incorrect password. Access denied.');
+    }
+  };
+  
   const services = [
     { name: "Hardware Solutions", icon: BsCpu },
     { name: "Software Development", icon: BsCodeSlash },
@@ -91,7 +106,7 @@ const Footer = () => {
               
               {/* Company Profile Download */}
               <button
-                onClick={generateCompanyProfilePDF}
+                onClick={handleCompanyProfileDownload}
                 className="text-gray-300 hover:text-primary transition-all duration-300 group flex items-center gap-2 w-fit text-left"
                 data-testid="link-company-profile"
               >
