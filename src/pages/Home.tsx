@@ -64,9 +64,9 @@ const Home = () => {
   ];
 
   const stats = [
-    { value: "500+", label: "Projects Completed", icon: FaCheckCircle },
+    { value: "4", label: "Projects Completed", icon: FaCheckCircle },
     { value: "100+", label: "Happy Clients", icon: FaUsers },
-    { value: "15+", label: "Years Experience", icon: HiTrendingUp },
+    { value: "3+", label: "Years Experience", icon: HiTrendingUp },
     { value: "24/7", label: "Support Available", icon: FaRocket },
   ];
 
