@@ -248,7 +248,7 @@ const Services = () => {
                   <Zap className="ml-2 group-hover:rotate-12 transition-transform" size={20} />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-dark" data-testid="button-learn-more-about">
+              <Button asChild size="lg" variant="outline" className="border-white bg-transparent text-white hover:bg-white hover:text-brand-dark transition-colors" data-testid="button-learn-more-about">
                 <Link to="/about">Learn More About Us</Link>
               </Button>
             </div>

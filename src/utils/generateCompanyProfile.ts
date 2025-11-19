@@ -161,7 +161,7 @@ export const generateCompanyProfilePDF = async () => {
   // Year
   doc.setFontSize(14);
   doc.setFont('helvetica', 'normal');
-  doc.text('2023', centerX, 172, { align: 'center' });
+  doc.text('Founded: 2023', centerX, 172, { align: 'center' });
 
   // Bottom accent section
   doc.setFillColor(37, 99, 235);

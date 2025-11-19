@@ -109,7 +109,7 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className={`md:hidden py-4 space-y-2 border-t animate-fade-in ${
-            isTransparent ? "border-white/10" : "border-border/50"
+            isTransparent ? "border-white/10 bg-brand-dark/95 backdrop-blur-xl" : "border-border/50 bg-background/95 backdrop-blur-xl"
           }`}>
             {navLinks.map((link) => (
               <NavLink
