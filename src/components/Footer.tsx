@@ -11,18 +11,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const handleCompanyProfileDownload = async () => {
-    const password = window.prompt('Please enter the password to download the company profile:');
-    
-    if (password === null) {
-      // User cancelled
-      return;
-    }
-    
-    if (password === '0852T') {
-      await generateCompanyProfilePDF();
-    } else {
-      alert('Incorrect password. Access denied.');
-    }
+    await generateCompanyProfilePDF();
   };
   
   const services = [
