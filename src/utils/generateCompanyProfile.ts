@@ -236,9 +236,9 @@ export const generateCompanyProfilePDF = async () => {
   const overviewText = 'EDIGHT is a visionary IT solutions company based in Pretoria, Gauteng, South Africa. Founded by Mantsie Senyane Bright and Edgar Tshwarelo Moloantoa, the company operates at the intersection of technology, innovation, and empowerment, positioning itself as a catalyst for digital transformation across the African continent. We specialize in delivering cutting-edge, comprehensive technology solutions that transform businesses, enhance operational efficiency, and empower communities through sustainable growth and skills development. With over 3 years of dedicated industry experience, we have successfully delivered innovative, tailored technology solutions to a diverse portfolio of clients, ranging from emerging small businesses and startups to well-established large enterprises across multiple sectors. Our commitment to excellence, customer satisfaction, and continuous innovation drives everything we do, ensuring that every solution we deliver not only meets but exceeds our clients\' expectations while contributing to the broader goal of technological advancement in South Africa and beyond.';
   const splitOverview = doc.splitTextToSize(overviewText, pageWidth - (margin * 2));
   doc.text(splitOverview, margin, yPos);
-  yPos += splitOverview.length * 5 + 12;
+  yPos += splitOverview.length * 5 + 10;
 
-  // Company Statistics - better centered between sections
+  // Company Statistics
   doc.setFillColor(243, 244, 246);
   doc.roundedRect(margin, yPos, pageWidth - (margin * 2), 20, 2, 2, 'F');
   
@@ -264,7 +264,7 @@ export const generateCompanyProfilePDF = async () => {
   doc.text('Completed', statX2, yPos);
   doc.text('Available', statX3, yPos);
   
-  yPos += 16;
+  yPos += 18;
 
   // Mission & Vision
   doc.setFontSize(16);
