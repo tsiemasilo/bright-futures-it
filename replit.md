@@ -97,6 +97,8 @@ All routes are client-side rendered with a catch-all route for 404 handling. The
 - **cmdk**: Command menu component
 - **input-otp**: OTP input handling
 - **vaul**: Drawer component library
+- **jspdf**: PDF document generation library
+- **jspdf-autotable**: Table plugin for jsPDF (enhanced PDF features)
 
 ### Development Tools
 - **@vitejs/plugin-react-swc**: Fast React refresh using SWC compiler
@@ -108,3 +110,17 @@ All routes are client-side rendered with a catch-all route for 404 handling. The
 - **Google Fonts**: Playfair Display and Inter font families
 
 **Integration notes**: All dependencies are managed through npm. The application does not currently integrate with external APIs or databases but has the infrastructure (React Query) to add such integrations easily. Forms currently handle data client-side only; backend integration would be needed for actual form submissions.
+
+## Features
+
+### Company Profile PDF Download
+- **Professional 3-page PDF** generated client-side using jsPDF
+- **Download link** available in the footer under "Quick Links"
+- **PDF content includes**:
+  - Page 1: Cover page with company logo, name, tagline, and contact information
+  - Page 2: Company overview, mission, vision, and comprehensive services listing
+  - Page 3: Founders profiles, core values, and detailed contact information
+- **Branding**: Fully branded with Edight colors, logo representation, and professional layout
+- **No backend required**: PDF is generated dynamically in the browser when user clicks the download button
+
+**Implementation**: The `generateCompanyProfilePDF` utility function in `src/utils/generateCompanyProfile.ts` handles PDF generation with professional formatting, brand colors, and structured content layout.

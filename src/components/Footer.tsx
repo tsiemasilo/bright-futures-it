@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { HiMail, HiPhone, HiLocationMarker, HiArrowRight } from 'react-icons/hi';
+import { HiMail, HiPhone, HiLocationMarker, HiArrowRight, HiDocumentDownload } from 'react-icons/hi';
 import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { BsCpu, BsCodeSlash, BsShieldLock, BsLightbulb } from 'react-icons/bs';
 import edightLogo from '@/assets/edight-logo.svg';
+import { generateCompanyProfilePDF } from '@/utils/generateCompanyProfile';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -87,6 +88,16 @@ const Footer = () => {
                   <span>{link.label}</span>
                 </Link>
               ))}
+              
+              {/* Company Profile Download */}
+              <button
+                onClick={generateCompanyProfilePDF}
+                className="text-gray-300 hover:text-primary transition-all duration-300 group flex items-center gap-2 w-fit text-left"
+                data-testid="link-company-profile"
+              >
+                <HiDocumentDownload size={14} className="opacity-0 group-hover:opacity-100 -ml-5 group-hover:ml-0 transition-all" />
+                <span>Company Profile</span>
+              </button>
             </nav>
           </div>
 

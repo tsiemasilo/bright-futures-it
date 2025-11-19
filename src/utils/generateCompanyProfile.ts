@@ -1,0 +1,386 @@
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+
+export const generateCompanyProfilePDF = () => {
+  const doc = new jsPDF({
+    orientation: 'portrait',
+    unit: 'mm',
+    format: 'a4'
+  });
+
+  const primaryColor = '#2563eb'; // Brand blue
+  const accentColor = '#6B46C1'; // Purple accent
+  const darkColor = '#1D2637'; // Dark navy
+  const lightColor = '#F3F4F6'; // Light gray
+
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const margin = 20;
+
+  // ==================== PAGE 1: COVER PAGE ====================
+  
+  // Background gradient effect (simulated with rectangles)
+  doc.setFillColor(29, 38, 55); // Dark navy
+  doc.rect(0, 0, pageWidth, pageHeight, 'F');
+
+  // Top accent bar
+  doc.setFillColor(37, 99, 235); // Blue
+  doc.rect(0, 0, pageWidth, 40, 'F');
+
+  // Company logo representation (simplified network design)
+  const centerX = pageWidth / 2;
+  const logoY = 60;
+  
+  // Draw network nodes (simplified logo)
+  doc.setFillColor(91, 163, 197); // Light blue
+  doc.circle(centerX, logoY, 3, 'F');
+  doc.circle(centerX - 8, logoY + 8, 2.5, 'F');
+  doc.circle(centerX + 8, logoY + 8, 2.5, 'F');
+  doc.circle(centerX - 8, logoY + 20, 2.5, 'F');
+  doc.circle(centerX + 8, logoY + 20, 2.5, 'F');
+  doc.circle(centerX, logoY + 28, 3, 'F');
+  
+  doc.setFillColor(107, 70, 193); // Purple
+  doc.circle(centerX - 4, logoY + 14, 3.5, 'F');
+  doc.circle(centerX + 4, logoY + 14, 3.5, 'F');
+
+  // Company name
+  doc.setTextColor(255, 255, 255);
+  doc.setFontSize(48);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Edight', centerX, 110, { align: 'center' });
+
+  // Tagline
+  doc.setFontSize(16);
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(200, 200, 200);
+  doc.text('Technology Innovation & IT Solutions', centerX, 125, { align: 'center' });
+
+  // Decorative line
+  doc.setDrawColor(37, 99, 235);
+  doc.setLineWidth(0.5);
+  doc.line(centerX - 40, 135, centerX + 40, 135);
+
+  // Company Profile title
+  doc.setFontSize(32);
+  doc.setTextColor(255, 255, 255);
+  doc.setFont('helvetica', 'bold');
+  doc.text('COMPANY PROFILE', centerX, 160, { align: 'center' });
+
+  // Year
+  doc.setFontSize(14);
+  doc.setFont('helvetica', 'normal');
+  doc.text('2025', centerX, 172, { align: 'center' });
+
+  // Bottom accent section
+  doc.setFillColor(37, 99, 235);
+  const bottomY = pageHeight - 60;
+  doc.roundedRect(margin, bottomY, pageWidth - (margin * 2), 40, 3, 3, 'F');
+
+  // Contact info on cover
+  doc.setFontSize(10);
+  doc.setTextColor(255, 255, 255);
+  doc.setFont('helvetica', 'normal');
+  doc.text('Pretoria, Gauteng, South Africa', centerX, bottomY + 12, { align: 'center' });
+  doc.text('Email: EDGARBRIGHTGROUP@GMAIL.COM', centerX, bottomY + 20, { align: 'center' });
+  doc.text('Phone: 071 157 8316 | 072 447 6949', centerX, bottomY + 28, { align: 'center' });
+
+  // ==================== PAGE 2: ABOUT & SERVICES ====================
+  doc.addPage();
+
+  // Header background
+  doc.setFillColor(37, 99, 235);
+  doc.rect(0, 0, pageWidth, 25, 'F');
+
+  // Page title
+  doc.setFontSize(20);
+  doc.setTextColor(255, 255, 255);
+  doc.setFont('helvetica', 'bold');
+  doc.text('About Edight', margin, 17);
+
+  let yPos = 40;
+
+  // Company Overview
+  doc.setFontSize(14);
+  doc.setTextColor(37, 99, 235);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Company Overview', margin, yPos);
+  
+  yPos += 8;
+  doc.setFontSize(10);
+  doc.setTextColor(60, 60, 60);
+  doc.setFont('helvetica', 'normal');
+  const overviewText = 'Edight is a visionary IT solutions company based in Pretoria, Gauteng. Founded by Mantsie Senyane Bright and Edgar Tshwarelo Moloantoa, the company operates at the intersection of technology, innovation, and empowerment. We specialize in delivering cutting-edge solutions that transform businesses and empower communities across South Africa and beyond.';
+  const splitOverview = doc.splitTextToSize(overviewText, pageWidth - (margin * 2));
+  doc.text(splitOverview, margin, yPos);
+  yPos += splitOverview.length * 5 + 10;
+
+  // Mission & Vision
+  doc.setFontSize(14);
+  doc.setTextColor(37, 99, 235);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Our Mission', margin, yPos);
+  
+  yPos += 8;
+  doc.setFontSize(10);
+  doc.setTextColor(60, 60, 60);
+  doc.setFont('helvetica', 'normal');
+  const missionText = 'To empower individuals, businesses, and communities through modern, secure, and transformative technology solutions that drive innovation and sustainable growth.';
+  const splitMission = doc.splitTextToSize(missionText, pageWidth - (margin * 2));
+  doc.text(splitMission, margin, yPos);
+  yPos += splitMission.length * 5 + 10;
+
+  // Vision
+  doc.setFontSize(14);
+  doc.setTextColor(37, 99, 235);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Our Vision', margin, yPos);
+  
+  yPos += 8;
+  doc.setFontSize(10);
+  doc.setTextColor(60, 60, 60);
+  doc.setFont('helvetica', 'normal');
+  const visionText = 'To become Africa\'s leading technology solutions provider, recognized for excellence in innovation, security, and customer service while creating meaningful impact through skills development and digital transformation.';
+  const splitVision = doc.splitTextToSize(visionText, pageWidth - (margin * 2));
+  doc.text(splitVision, margin, yPos);
+  yPos += splitVision.length * 5 + 12;
+
+  // Core Services Section
+  doc.setFillColor(243, 244, 246);
+  doc.roundedRect(margin, yPos, pageWidth - (margin * 2), 5, 2, 2, 'F');
+  
+  yPos += 10;
+  doc.setFontSize(16);
+  doc.setTextColor(37, 99, 235);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Our Core Services', margin, yPos);
+  
+  yPos += 10;
+
+  const services = [
+    {
+      title: 'Hardware Solutions',
+      desc: 'Complete hardware infrastructure, procurement, installation, and maintenance services including servers, workstations, networking equipment, and peripherals.'
+    },
+    {
+      title: 'Software Development',
+      desc: 'Custom software solutions, web and mobile applications, enterprise systems, and digital platforms tailored to your business needs.'
+    },
+    {
+      title: 'Security Technologies',
+      desc: 'Comprehensive security solutions including surveillance systems, access control, cybersecurity, network security, and risk management.'
+    },
+    {
+      title: 'IT Consulting & Support',
+      desc: 'Expert IT consulting, strategic planning, system optimization, 24/7 technical support, and ongoing maintenance services.'
+    },
+    {
+      title: 'Networking Solutions',
+      desc: 'Network design, implementation, wireless solutions, VPN setup, network monitoring, and infrastructure optimization.'
+    },
+    {
+      title: 'Cloud Solutions',
+      desc: 'Cloud migration, hosting services, backup and disaster recovery, cloud infrastructure management, and SaaS solutions.'
+    },
+    {
+      title: 'ICT Training & Development',
+      desc: 'Professional training programs, certification courses, skills development, and technology workshops for individuals and organizations.'
+    }
+  ];
+
+  services.forEach((service, index) => {
+    if (yPos > pageHeight - 40) {
+      doc.addPage();
+      // Add header to new page
+      doc.setFillColor(37, 99, 235);
+      doc.rect(0, 0, pageWidth, 25, 'F');
+      doc.setFontSize(20);
+      doc.setTextColor(255, 255, 255);
+      doc.setFont('helvetica', 'bold');
+      doc.text('Our Services (Continued)', margin, 17);
+      yPos = 40;
+    }
+
+    // Service bullet point
+    doc.setFillColor(37, 99, 235);
+    doc.circle(margin + 2, yPos - 1.5, 1.5, 'F');
+
+    doc.setFontSize(11);
+    doc.setTextColor(37, 99, 235);
+    doc.setFont('helvetica', 'bold');
+    doc.text(service.title, margin + 6, yPos);
+    
+    yPos += 5;
+    doc.setFontSize(9);
+    doc.setTextColor(80, 80, 80);
+    doc.setFont('helvetica', 'normal');
+    const splitDesc = doc.splitTextToSize(service.desc, pageWidth - (margin * 2) - 6);
+    doc.text(splitDesc, margin + 6, yPos);
+    yPos += splitDesc.length * 4 + 6;
+  });
+
+  // ==================== PAGE 3: TEAM & CONTACT ====================
+  doc.addPage();
+
+  // Header background
+  doc.setFillColor(37, 99, 235);
+  doc.rect(0, 0, pageWidth, 25, 'F');
+
+  // Page title
+  doc.setFontSize(20);
+  doc.setTextColor(255, 255, 255);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Our Leadership Team', margin, 17);
+
+  yPos = 40;
+
+  // Founders Section
+  doc.setFontSize(14);
+  doc.setTextColor(37, 99, 235);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Meet Our Founders', margin, yPos);
+  
+  yPos += 10;
+
+  const founders = [
+    {
+      name: 'Mantsie Senyane Bright',
+      role: 'Co-Founder & Technology Director',
+      bio: 'Mantsie brings extensive expertise in technology innovation and business strategy. With a passion for empowering communities through technology, Mantsie leads our technology vision and ensures we deliver cutting-edge solutions that make a real difference.'
+    },
+    {
+      name: 'Edgar Tshwarelo Moloantoa',
+      role: 'Co-Founder & Operations Director',
+      bio: 'Edgar specializes in operational excellence and strategic partnerships. His commitment to quality service delivery and customer satisfaction drives our operational standards and ensures we exceed client expectations on every project.'
+    }
+  ];
+
+  founders.forEach((founder) => {
+    // Founder box
+    doc.setFillColor(243, 244, 246);
+    doc.roundedRect(margin, yPos - 5, pageWidth - (margin * 2), 35, 2, 2, 'F');
+
+    // Avatar placeholder
+    doc.setFillColor(37, 99, 235);
+    const avatarX = margin + 5;
+    const avatarY = yPos;
+    doc.circle(avatarX + 6, avatarY + 6, 6, 'F');
+    
+    // Initials
+    doc.setFontSize(10);
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    const initials = founder.name.split(' ').map(n => n[0]).join('');
+    doc.text(initials, avatarX + 6, avatarY + 8, { align: 'center' });
+
+    // Name and role
+    doc.setFontSize(12);
+    doc.setTextColor(37, 99, 235);
+    doc.setFont('helvetica', 'bold');
+    doc.text(founder.name, avatarX + 15, yPos + 3);
+    
+    doc.setFontSize(10);
+    doc.setTextColor(107, 70, 193);
+    doc.setFont('helvetica', 'normal');
+    doc.text(founder.role, avatarX + 15, yPos + 9);
+
+    // Bio
+    doc.setFontSize(9);
+    doc.setTextColor(80, 80, 80);
+    const splitBio = doc.splitTextToSize(founder.bio, pageWidth - (margin * 2) - 25);
+    doc.text(splitBio, avatarX + 15, yPos + 15);
+
+    yPos += 42;
+  });
+
+  // Company Values
+  yPos += 5;
+  doc.setFontSize(14);
+  doc.setTextColor(37, 99, 235);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Our Core Values', margin, yPos);
+  
+  yPos += 8;
+
+  const values = [
+    'Innovation: Embracing cutting-edge technology and creative solutions',
+    'Excellence: Delivering quality in every project and interaction',
+    'Integrity: Building trust through transparency and ethical practices',
+    'Empowerment: Enabling growth through skills development and support',
+    'Customer Focus: Prioritizing client success and satisfaction'
+  ];
+
+  doc.setFontSize(9);
+  doc.setTextColor(60, 60, 60);
+  doc.setFont('helvetica', 'normal');
+  
+  values.forEach(value => {
+    doc.setFillColor(37, 99, 235);
+    doc.circle(margin + 2, yPos - 1.5, 1.2, 'F');
+    doc.text(value, margin + 6, yPos);
+    yPos += 6;
+  });
+
+  // Contact Information Section
+  yPos += 8;
+  doc.setFillColor(29, 38, 55);
+  doc.roundedRect(margin, yPos, pageWidth - (margin * 2), 60, 3, 3, 'F');
+
+  yPos += 10;
+  doc.setFontSize(16);
+  doc.setTextColor(255, 255, 255);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Get In Touch', margin + 10, yPos);
+
+  yPos += 10;
+  doc.setFontSize(10);
+  doc.setFont('helvetica', 'normal');
+  
+  // Location
+  doc.setFillColor(37, 99, 235);
+  doc.circle(margin + 12, yPos - 1.5, 2, 'F');
+  doc.setTextColor(200, 200, 200);
+  doc.text('Location:', margin + 18, yPos);
+  doc.setTextColor(255, 255, 255);
+  doc.text('Pretoria, Gauteng, South Africa', margin + 40, yPos);
+
+  yPos += 7;
+  // Phone
+  doc.setFillColor(37, 99, 235);
+  doc.circle(margin + 12, yPos - 1.5, 2, 'F');
+  doc.setTextColor(200, 200, 200);
+  doc.text('Phone:', margin + 18, yPos);
+  doc.setTextColor(255, 255, 255);
+  doc.text('071 157 8316 | 072 447 6949', margin + 40, yPos);
+
+  yPos += 7;
+  // Email
+  doc.setFillColor(37, 99, 235);
+  doc.circle(margin + 12, yPos - 1.5, 2, 'F');
+  doc.setTextColor(200, 200, 200);
+  doc.text('Email:', margin + 18, yPos);
+  doc.setTextColor(255, 255, 255);
+  doc.text('EDGARBRIGHTGROUP@GMAIL.COM', margin + 40, yPos);
+
+  yPos += 10;
+  // Call to action
+  doc.setFontSize(11);
+  doc.setTextColor(34, 211, 238);
+  doc.setFont('helvetica', 'bold');
+  const ctaText = 'Ready to transform your business with technology?';
+  doc.text(ctaText, centerX, yPos, { align: 'center' });
+  
+  yPos += 6;
+  doc.setFontSize(10);
+  doc.setTextColor(200, 200, 200);
+  doc.setFont('helvetica', 'normal');
+  doc.text('Contact us today to discuss your IT solutions needs.', centerX, yPos, { align: 'center' });
+
+  // Footer on last page
+  doc.setFontSize(8);
+  doc.setTextColor(150, 150, 150);
+  doc.text(`© ${new Date().getFullYear()} Edight (PTY). All rights reserved.`, centerX, pageHeight - 10, { align: 'center' });
+
+  // Save the PDF
+  doc.save('Edight_Company_Profile.pdf');
+};
