@@ -105,39 +105,39 @@ const Navigation = () => {
             {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
           </button>
         </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className={`md:hidden py-4 space-y-2 border-t animate-fade-in ${
-            isTransparent ? "border-white/10 bg-brand-dark/95 backdrop-blur-xl" : "border-border/50 bg-background/95 backdrop-blur-xl"
-          }`}>
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                onClick={() => setIsOpen(false)}
-                className={`block transition-all py-3 px-4 rounded-lg font-medium ${
-                  isTransparent
-                    ? "text-white/80 hover:text-white hover:bg-white/10"
-                    : "text-foreground/70 hover:text-foreground hover:bg-primary/5" 
-                }`}
-                activeClassName={isTransparent ? "text-cyan-400 bg-white/10" : "text-primary bg-primary/5"}
-              >
-                {link.label}
-              </NavLink>
-            ))}
-            <Button asChild variant="default" className={`w-full hover:scale-105 shadow-hover btn-glow transition-all duration-300 ${
-              isTransparent
-                ? "bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 border-0"
-                : "bg-gradient-moving" 
-            }`}>
-              <NavLink to="/contact" onClick={() => setIsOpen(false)}>
-                Get Started
-              </NavLink>
-            </Button>
-          </div>
-        )}
       </div>
+
+      {/* Mobile Navigation - Outside container for full width */}
+      {isOpen && (
+        <div className={`md:hidden py-4 px-4 space-y-2 border-t animate-fade-in ${
+          isTransparent ? "border-white/10 bg-brand-dark/95 backdrop-blur-xl" : "border-border/50 bg-background/95 backdrop-blur-xl"
+        }`}>
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              onClick={() => setIsOpen(false)}
+              className={`block transition-all py-3 px-4 rounded-lg font-medium ${
+                isTransparent
+                  ? "text-white/80 hover:text-white hover:bg-white/10"
+                  : "text-foreground/70 hover:text-foreground hover:bg-primary/5" 
+              }`}
+              activeClassName={isTransparent ? "text-cyan-400 bg-white/10" : "text-primary bg-primary/5"}
+            >
+              {link.label}
+            </NavLink>
+          ))}
+          <Button asChild variant="default" className={`w-full hover:scale-105 shadow-hover btn-glow transition-all duration-300 ${
+            isTransparent
+              ? "bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 border-0"
+              : "bg-gradient-moving" 
+          }`}>
+            <NavLink to="/contact" onClick={() => setIsOpen(false)}>
+              Get Started
+            </NavLink>
+          </Button>
+        </div>
+      )}
     </nav>
   );
 };
