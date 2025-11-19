@@ -52,6 +52,40 @@ export const generateCompanyProfilePDF = async () => {
   const pageHeight = doc.internal.pageSize.getHeight();
   const margin = 20;
 
+  // Helper function to add footer to each page
+  const addPageFooter = () => {
+    const footerY = pageHeight - 12;
+    const logoSize = 1.5;
+    const logoX = margin;
+    
+    // Draw small logo
+    doc.setFillColor(91, 163, 197); // Light blue
+    doc.circle(logoX + logoSize, footerY - 1, logoSize * 0.8, 'F');
+    doc.circle(logoX, footerY, logoSize * 0.6, 'F');
+    doc.circle(logoX + logoSize * 2, footerY, logoSize * 0.6, 'F');
+    
+    doc.setFillColor(107, 70, 193); // Purple
+    doc.circle(logoX + logoSize, footerY, logoSize * 0.9, 'F');
+    
+    // Company name with Orbitron font
+    doc.setFontSize(8);
+    doc.setTextColor(60, 60, 60);
+    try {
+      doc.setFont('Orbitron', 'bold');
+    } catch {
+      doc.setFont('helvetica', 'bold');
+    }
+    doc.text('EDIGHT', logoX + logoSize * 2 + 5, footerY + 1);
+    
+    // Founders names
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(7);
+    doc.setTextColor(100, 100, 100);
+    const footerText = 'Mantsie Senyane Bright | Edgar Tshwarelo Moloantoa';
+    const footerTextWidth = doc.getTextWidth(footerText);
+    doc.text(footerText, pageWidth - margin - footerTextWidth, footerY + 1);
+  };
+
   // ==================== PAGE 1: COVER PAGE ====================
   
   // Background gradient effect (simulated with rectangles)
@@ -119,7 +153,7 @@ export const generateCompanyProfilePDF = async () => {
   // Year
   doc.setFontSize(14);
   doc.setFont('helvetica', 'normal');
-  doc.text('2025', centerX, 172, { align: 'center' });
+  doc.text('2023', centerX, 172, { align: 'center' });
 
   // Bottom accent section
   doc.setFillColor(37, 99, 235);
@@ -133,6 +167,9 @@ export const generateCompanyProfilePDF = async () => {
   doc.text('Pretoria, Gauteng, South Africa', centerX, bottomY + 12, { align: 'center' });
   doc.text('Email: EDGARBRIGHTGROUP@GMAIL.COM', centerX, bottomY + 20, { align: 'center' });
   doc.text('Phone: 071 157 8316 | 072 447 6949', centerX, bottomY + 28, { align: 'center' });
+
+  // Add footer to page 1
+  addPageFooter();
 
   // ==================== PAGE 2: ABOUT & SERVICES ====================
   doc.addPage();
@@ -162,7 +199,7 @@ export const generateCompanyProfilePDF = async () => {
   doc.rect(0, 0, pageWidth, 25, 'F');
 
   // Page title
-  doc.setFontSize(20);
+  doc.setFontSize(24);
   doc.setTextColor(255, 255, 255);
   try {
     doc.setFont('PlayfairDisplay', 'bold');
@@ -174,7 +211,7 @@ export const generateCompanyProfilePDF = async () => {
   let yPos = 40;
 
   // Company Overview
-  doc.setFontSize(14);
+  doc.setFontSize(16);
   doc.setTextColor(37, 99, 235);
   try {
     doc.setFont('PlayfairDisplay', 'bold');
@@ -221,7 +258,7 @@ export const generateCompanyProfilePDF = async () => {
   yPos += 18;
 
   // Mission & Vision
-  doc.setFontSize(14);
+  doc.setFontSize(16);
   doc.setTextColor(37, 99, 235);
   try {
     doc.setFont('PlayfairDisplay', 'bold');
@@ -240,7 +277,7 @@ export const generateCompanyProfilePDF = async () => {
   yPos += splitMission.length * 5 + 10;
 
   // Vision
-  doc.setFontSize(14);
+  doc.setFontSize(16);
   doc.setTextColor(37, 99, 235);
   try {
     doc.setFont('PlayfairDisplay', 'bold');
@@ -259,7 +296,7 @@ export const generateCompanyProfilePDF = async () => {
   yPos += splitVision.length * 5 + 10;
 
   // Why Choose EDIGHT
-  doc.setFontSize(14);
+  doc.setFontSize(16);
   doc.setTextColor(37, 99, 235);
   try {
     doc.setFont('PlayfairDisplay', 'bold');
@@ -297,7 +334,7 @@ export const generateCompanyProfilePDF = async () => {
   doc.roundedRect(margin, yPos, pageWidth - (margin * 2), 5, 2, 2, 'F');
   
   yPos += 10;
-  doc.setFontSize(16);
+  doc.setFontSize(18);
   doc.setTextColor(37, 99, 235);
   try {
     doc.setFont('PlayfairDisplay', 'bold');
@@ -345,7 +382,7 @@ export const generateCompanyProfilePDF = async () => {
       // Add header to new page
       doc.setFillColor(37, 99, 235);
       doc.rect(0, 0, pageWidth, 25, 'F');
-      doc.setFontSize(20);
+      doc.setFontSize(24);
       doc.setTextColor(255, 255, 255);
       try {
         doc.setFont('PlayfairDisplay', 'bold');
@@ -374,6 +411,9 @@ export const generateCompanyProfilePDF = async () => {
     yPos += splitDesc.length * 4 + 6;
   });
 
+  // Add footer to page 2 (or services continued page if it was created)
+  addPageFooter();
+
   // ==================== PAGE 3: TEAM & CONTACT ====================
   doc.addPage();
 
@@ -401,7 +441,7 @@ export const generateCompanyProfilePDF = async () => {
   doc.rect(0, 0, pageWidth, 25, 'F');
 
   // Page title
-  doc.setFontSize(20);
+  doc.setFontSize(24);
   doc.setTextColor(255, 255, 255);
   try {
     doc.setFont('PlayfairDisplay', 'bold');
@@ -413,7 +453,7 @@ export const generateCompanyProfilePDF = async () => {
   yPos = 40;
 
   // Founders Section
-  doc.setFontSize(14);
+  doc.setFontSize(16);
   doc.setTextColor(37, 99, 235);
   try {
     doc.setFont('PlayfairDisplay', 'bold');
@@ -477,7 +517,7 @@ export const generateCompanyProfilePDF = async () => {
 
   // Company Values
   yPos += 5;
-  doc.setFontSize(14);
+  doc.setFontSize(16);
   doc.setTextColor(37, 99, 235);
   try {
     doc.setFont('PlayfairDisplay', 'bold');
@@ -509,7 +549,7 @@ export const generateCompanyProfilePDF = async () => {
 
   // Industry Expertise
   yPos += 6;
-  doc.setFontSize(14);
+  doc.setFontSize(16);
   doc.setTextColor(37, 99, 235);
   try {
     doc.setFont('PlayfairDisplay', 'bold');
@@ -554,7 +594,7 @@ export const generateCompanyProfilePDF = async () => {
   doc.roundedRect(margin, yPos, pageWidth - (margin * 2), 60, 3, 3, 'F');
 
   yPos += 10;
-  doc.setFontSize(16);
+  doc.setFontSize(18);
   doc.setTextColor(255, 255, 255);
   try {
     doc.setFont('PlayfairDisplay', 'bold');
@@ -607,10 +647,8 @@ export const generateCompanyProfilePDF = async () => {
   doc.setFont('helvetica', 'normal');
   doc.text('Contact us today to discuss your IT solutions needs.', centerX, yPos, { align: 'center' });
 
-  // Footer on last page
-  doc.setFontSize(8);
-  doc.setTextColor(150, 150, 150);
-  doc.text(`© ${new Date().getFullYear()} EDIGHT (PTY). All rights reserved.`, centerX, pageHeight - 10, { align: 'center' });
+  // Add footer to page 3
+  addPageFooter();
 
   // Save the PDF
   doc.save('EDIGHT_Company_Profile.pdf');
