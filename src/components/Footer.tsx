@@ -194,10 +194,10 @@ const Footer = () => {
               &copy; 2023 <BrandName inline size="sm" className="text-gray-400" /> (PTY). All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <Link to="#" className="hover:text-primary transition-colors" data-testid="link-privacy">
+              <Link to="/privacy-policy" className="hover:text-primary transition-colors" data-testid="link-privacy">
                 Privacy Policy
               </Link>
-              <Link to="#" className="hover:text-primary transition-colors" data-testid="link-terms">
+              <Link to="/terms-of-service" className="hover:text-primary transition-colors" data-testid="link-terms">
                 Terms of Service
               </Link>
             </div>
