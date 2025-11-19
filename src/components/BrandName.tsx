@@ -3,7 +3,7 @@ import { CSSProperties } from "react";
 
 interface BrandNameProps {
   className?: string;
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
   variant?: "default" | "gradient" | "accent";
   inline?: boolean;
   style?: CSSProperties;
@@ -21,7 +21,8 @@ export const BrandName = ({
     sm: "text-base md:text-lg",
     md: "text-xl md:text-2xl",
     lg: "text-2xl md:text-3xl",
-    xl: "text-3xl md:text-4xl"
+    xl: "text-3xl md:text-4xl",
+    "2xl": "text-4xl md:text-6xl"
   };
 
   const variantClasses = {
