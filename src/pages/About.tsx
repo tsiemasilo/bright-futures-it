@@ -69,7 +69,7 @@ const About = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold">About <BrandName variant="gradient" size="2xl" /></h1>
+            <h1 className="text-4xl md:text-5xl font-bold">About <BrandName variant="gradient" size="xl" /></h1>
             <p className="text-xl text-muted-foreground">
               A visionary IT solutions company at the intersection of technology, innovation, and empowerment
             </p>
