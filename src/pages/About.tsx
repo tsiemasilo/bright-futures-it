@@ -2,6 +2,7 @@ import { Target, Eye, Award, Users, Lightbulb, Heart, Sparkles } from "lucide-re
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { BrandName } from "@/components/BrandName";
 
 const About = () => {
   const visionIcons = [Lightbulb, Users, Target, Award, Heart, Sparkles];
@@ -18,7 +19,11 @@ const About = () => {
     {
       name: "Mantsie Senyane Bright",
       role: "Co-Founder & Technical Director",
-      description: "Leading technical strategy and innovation at Edight"
+      description: (
+        <>
+          Leading technical strategy and innovation at <BrandName inline size="sm" />
+        </>
+      )
     },
     {
       name: "Edgar Tshwarelo Moloantoa",
@@ -64,7 +69,7 @@ const About = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold">About <span className="gradient-text">Edight</span></h1>
+            <h1 className="text-4xl md:text-5xl font-bold">About <BrandName variant="gradient" size="lg" /></h1>
             <p className="text-xl text-muted-foreground">
               A visionary IT solutions company at the intersection of technology, innovation, and empowerment
             </p>
@@ -81,7 +86,7 @@ const About = () => {
                 <h2 className="text-2xl md:text-3xl font-bold mb-6">Who We Are</h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p className="text-lg">
-                    <span className="font-bold text-foreground">Edight</span> is a visionary IT solutions company based in Pretoria, Gauteng. 
+                    <BrandName inline size="md" /> is a visionary IT solutions company based in Pretoria, Gauteng. 
                     Founded by Mantsie Senyane Bright and Edgar Tshwarelo Moloantoa, the company operates 
                     at the intersection of technology, innovation, and empowerment.
                   </p>
@@ -182,7 +187,7 @@ const About = () => {
                   <div>
                     <h3 className="text-xl font-bold mb-1 text-cyan-400 animate-glow">{founder.name}</h3>
                     <p className="text-cyan-300 font-medium mb-3">{founder.role}</p>
-                    <p className="text-gray-300 text-sm">{founder.description}</p>
+                    <div className="text-gray-300 text-sm">{founder.description}</div>
                   </div>
                 </CardContent>
               </Card>

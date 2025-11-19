@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { HiMenu, HiX } from 'react-icons/hi';
 import { useLocation } from 'react-router-dom';
 import edightLogo from '@/assets/edight-logo.svg';
+import { BrandName } from "@/components/BrandName";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,19 +52,17 @@ const Navigation = () => {
               alt="Edight Logo" 
               className="h-12 md:h-16 w-auto object-contain transform group-hover:scale-105 transition-transform duration-300"
             />
-            <span 
-              className={`text-2xl md:text-3xl font-extrabold uppercase tracking-wider transition-all duration-300 group-hover:scale-105 ${
+            <BrandName 
+              size="lg"
+              className={`transition-all duration-300 group-hover:scale-105 ${
                 isTransparent
                   ? "text-cyan-400 group-hover:text-cyan-300"
                   : "text-gray-900 group-hover:text-primary"
               }`}
               style={{ 
-                fontFamily: 'Orbitron, sans-serif', 
                 textShadow: isTransparent ? '0 0 20px rgba(34, 211, 238, 0.5), 0 0 40px rgba(34, 211, 238, 0.3)' : 'none'
               }}
-            >
-              EDIGHT
-            </span>
+            />
           </NavLink>
 
           {/* Desktop Navigation */}

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { BrandName } from "@/components/BrandName";
 import heroImage from "@/assets/hero-tech-bg.jpg";
 import heroModern from "@/assets/modern_technology_in_d73fa0d6.jpg";
 import { FaRocket, FaShieldAlt, FaUsers, FaAward, FaCheckCircle, FaLaptopCode, FaLayerGroup, FaChartLine, FaLightbulb, FaHandshake, FaLaptop, FaMobileAlt, FaServer, FaPrint, FaCode, FaLock, FaVideo, FaNetworkWired } from 'react-icons/fa';
@@ -178,7 +179,7 @@ const Home = () => {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-lg sm:text-xl lg:text-2xl text-white/80 leading-relaxed max-w-2xl"
               >
-                <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Edight</span> delivers cutting-edge technology, 
+                <BrandName inline variant="gradient" size="md" /> delivers cutting-edge technology, 
                 security, and software solutions to businesses across South Africa and beyond.
               </motion.p>
 
@@ -440,7 +441,7 @@ const Home = () => {
               </h2>
               <p className="text-muted-foreground text-lg">
                 Founded by visionaries Mantsie Senyane Bright and Edgar Tshwarelo Moloantoa, 
-                Edight stands at the intersection of technology, innovation, and empowerment.
+                <BrandName inline size="sm" /> stands at the intersection of technology, innovation, and empowerment.
               </p>
               <p className="text-muted-foreground">
                 Our mission extends beyond providing excellent IT services—we're committed to 

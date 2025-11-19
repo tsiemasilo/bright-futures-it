@@ -122,7 +122,7 @@ export const generateCompanyProfilePDF = () => {
   doc.setFontSize(20);
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
-  doc.text('About Edight', margin, 17);
+  doc.text('About EDIGHT', margin, 17);
 
   let yPos = 40;
 
@@ -136,7 +136,7 @@ export const generateCompanyProfilePDF = () => {
   doc.setFontSize(10);
   doc.setTextColor(60, 60, 60);
   doc.setFont('helvetica', 'normal');
-  const overviewText = 'Edight is a visionary IT solutions company based in Pretoria, Gauteng, South Africa. Founded by Mantsie Senyane Bright and Edgar Tshwarelo Moloantoa, the company operates at the intersection of technology, innovation, and empowerment, positioning itself as a catalyst for digital transformation across the African continent. We specialize in delivering cutting-edge, comprehensive technology solutions that transform businesses, enhance operational efficiency, and empower communities through sustainable growth and skills development. With over 3 years of dedicated industry experience, we have successfully delivered innovative, tailored technology solutions to a diverse portfolio of clients, ranging from emerging small businesses and startups to well-established large enterprises across multiple sectors. Our commitment to excellence, customer satisfaction, and continuous innovation drives everything we do, ensuring that every solution we deliver not only meets but exceeds our clients\' expectations while contributing to the broader goal of technological advancement in South Africa and beyond.';
+  const overviewText = 'EDIGHT is a visionary IT solutions company based in Pretoria, Gauteng, South Africa. Founded by Mantsie Senyane Bright and Edgar Tshwarelo Moloantoa, the company operates at the intersection of technology, innovation, and empowerment, positioning itself as a catalyst for digital transformation across the African continent. We specialize in delivering cutting-edge, comprehensive technology solutions that transform businesses, enhance operational efficiency, and empower communities through sustainable growth and skills development. With over 3 years of dedicated industry experience, we have successfully delivered innovative, tailored technology solutions to a diverse portfolio of clients, ranging from emerging small businesses and startups to well-established large enterprises across multiple sectors. Our commitment to excellence, customer satisfaction, and continuous innovation drives everything we do, ensuring that every solution we deliver not only meets but exceeds our clients\' expectations while contributing to the broader goal of technological advancement in South Africa and beyond.';
   const splitOverview = doc.splitTextToSize(overviewText, pageWidth - (margin * 2));
   doc.text(splitOverview, margin, yPos);
   yPos += splitOverview.length * 5 + 10;
@@ -199,11 +199,11 @@ export const generateCompanyProfilePDF = () => {
   doc.text(splitVision, margin, yPos);
   yPos += splitVision.length * 5 + 10;
 
-  // Why Choose Edight
+  // Why Choose EDIGHT
   doc.setFontSize(14);
   doc.setTextColor(37, 99, 235);
   doc.setFont('helvetica', 'bold');
-  doc.text('Why Choose Edight', margin, yPos);
+  doc.text('Why Choose EDIGHT', margin, yPos);
   
   yPos += 8;
 
@@ -515,8 +515,8 @@ export const generateCompanyProfilePDF = () => {
   // Footer on last page
   doc.setFontSize(8);
   doc.setTextColor(150, 150, 150);
-  doc.text(`© ${new Date().getFullYear()} Edight (PTY). All rights reserved.`, centerX, pageHeight - 10, { align: 'center' });
+  doc.text(`© ${new Date().getFullYear()} EDIGHT (PTY). All rights reserved.`, centerX, pageHeight - 10, { align: 'center' });
 
   // Save the PDF
-  doc.save('Edight_Company_Profile.pdf');
+  doc.save('EDIGHT_Company_Profile.pdf');
 };
